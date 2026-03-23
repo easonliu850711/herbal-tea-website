@@ -74,3 +74,23 @@ const config: Config = {
   plugins: [],
 }
 export default config
+
+// 自定義動畫
+const config: Config = {
+  // ... existing config ...
+  theme: {
+    extend: {
+      // ... existing extensions ...
+      animation: {
+        'scroll-slow': 'scroll 30s linear infinite',
+        'pulse-slow': 'pulse 3s ease-in-out infinite',
+      },
+      keyframes: {
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
+    },
+  },
+}

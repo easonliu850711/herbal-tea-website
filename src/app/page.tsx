@@ -1,4 +1,5 @@
 import HeroSection from '@/components/HeroSection'
+import PhotoGallery from '@/components/PhotoGallery'
 import FeaturedProducts from '@/components/FeaturedProducts'
 import BrandStory from '@/components/BrandStory'
 import ProductCategories from '@/components/ProductCategories'
@@ -9,6 +10,7 @@ export default function Home() {
   return (
     <div className="animate-fade-in">
       <HeroSection />
+      <PhotoGallery />
       <FeaturedProducts />
       <BrandStory />
       <ProductCategories />
