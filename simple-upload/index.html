@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>劉媽媽的草本茶 - 決明子茶的溫暖記憶</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
+        
+        /* 導航 */
+        nav { background: white; border-bottom: 1px solid #f0f0f0; padding: 1rem; position: sticky; top: 0; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 0.5rem; }
+        .logo-icon { width: 40px; height: 40px; background: linear-gradient(135deg, #ec4899, #f472b6); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
+        .logo-text { font-size: 1.25rem; font-weight: bold; }
+        .nav-links { display: none; }
+        @media (min-width: 768px) {
+            .nav-links { display: flex; gap: 2rem; }
+        }
+        .nav-link { color: #666; text-decoration: none; }
+        .nav-link:hover { color: #ec4899; }
+        .menu-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+        
+        /* 英雄區 */
+        .hero { background: linear-gradient(135deg, #fdf2f8, #fce7f3); padding: 4rem 1rem; text-align: center; }
+        .hero-icon { width: 80px; height: 80px; background: linear-gradient(135deg, #ec4899, #f472b6); border-radius: 20px; margin: 0 auto 2rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+        .hero h1 { font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem; }
+        .hero-highlight { background: linear-gradient(135deg, #ec4899, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.25rem; color: #666; max-width: 600px; margin: 0 auto 2rem; }
+        .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-primary { background: linear-gradient(135deg, #ec4899, #f472b6); color: white; padding: 1rem 2rem; border-radius: 9999px; text-decoration: none; font-weight: bold; }
+        .btn-secondary { background: white; color: #ec4899; border: 2px solid #fce7f3; padding: 1rem 2rem; border-radius: 9999px; text-decoration: none; font-weight: bold; }
+        
+        /* 故事區 */
+        .story { padding: 4rem 1rem; background: white; }
+        .story-container { max-width: 1200px; margin: 0 auto; }
+        .story h2 { text-align: center; font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem; }
+        .story-subtitle { text-align: center; color: #666; margin-bottom: 3rem; }
+        .story-cards { display: grid; gap: 2rem; }
+        @media (min-width: 768px) {
+            .story-cards { grid-template-columns: repeat(2, 1fr); }
+        }
+        .story-card { background: #fdf2f8; border-radius: 20px; padding: 2rem; border-left: 8px solid #f59e0b; }
+        .story-card:nth-child(2) { background: #fef3c7; border-left-color: #f59e0b; }
+        .story-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .story-icon { width: 60px; height: 60px; background: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+        .story-title { font-size: 1.5rem; font-weight: bold; }
+        .story-tag { font-size: 0.875rem; color: #ec4899; font-weight: bold; text-transform: uppercase; }
+        .story-content { color: #666; line-height: 1.8; margin-bottom: 1.5rem; }
+        .story-quote { background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #f59e0b; font-style: italic; color: #92400e; }
+        
+        /* 產品區 */
+        .products { padding: 4rem 1rem; background: #f9fafb; }
+        .products-container { max-width: 1200px; margin: 0 auto; }
+        .products h2 { text-align: center; font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem; }
+        .products-subtitle { text-align: center; color: #666; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .products-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: #fef3c7; color: #92400e; padding: 0.75rem 1.5rem; border-radius: 9999px; margin: 0 auto 3rem; }
+        .products-grid { display: grid; gap: 2rem; }
+        @media (min-width: 768px) {
+            .products-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 1024px) {
+            .products-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        .product-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .product-card:hover { transform: translateY(-8px); }
+        .product-image { height: 200px; background: linear-gradient(135deg, #d1fae5, #a7f3d0); display: flex; align-items: center; justify-content: center; }
+        .product-image:nth-child(2) { background: linear-gradient(135deg, #fed7aa, #fdba74); }
+        .product-image:nth-child(3) { background: linear-gradient(135deg, #fbcfe8, #f9a8d4); }
+        .product-image:nth-child(4) { background: linear-gradient(135deg, #bae6fd, #7dd3fc); }
+        .product-emoji { font-size: 3rem; }
+        .product-content { padding: 1.5rem; }
+        .product-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem; }
+        .product-category { font-size: 0.75rem; color: #10b981; font-weight: bold; text-transform: uppercase; }
+        .product-name { font-size: 1.5rem; font-weight: bold; margin: 0.5rem 0; }
+        .product-type { color: #10b981; font-weight: 500; }
+        .product-tag { background: #d1fae5; color: #065f46; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; }
+        .product-desc { color: #666; margin-bottom: 1rem; }
+        .product-ingredients { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .ingredient { background: #f3f4f6; color: #4b5563; padding: 0.25rem 0.75rem; border-radius: 6px; font-size: 0.875rem; }
+        .ingredient.cassia { background: #fef3c7; color: #92400e; font-weight: 600; animation: pulse 2s infinite; }
+        
+        /* 聯絡區 */
+        .contact { padding: 4rem 1rem; background: linear-gradient(135deg, #d1fae5, #a7f3d0); }
+        .contact-container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 24px; overflow: hidden; }
+        .contact-content { padding: 3rem; }
+        .contact h2 { font-size: 2rem; font-weight: bold; margin-bottom: 1rem; }
+        .contact p { color: #666; margin-bottom: 2rem; }
+        .contact-info { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .contact-icon { width: 48px; height: 48px; background: #d1fae5; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; }
+        .contact-details h3 { font-weight: bold; margin-bottom: 0.25rem; }
+        .contact-details p { color: #10b981; margin: 0; }
+        
+        /* 頁尾 */
+        footer { background: #1f2937; color: white; padding: 3rem 1rem; }
+        .footer-container { max-width: 1200px; margin: 0 auto; }
+        .footer-main { display: flex; flex-direction: column; gap: 2rem; margin-bottom: 2rem; }
+        @media (min-width: 768px) {
+            .footer-main { flex-direction: row; justify-content: space-between; }
+        }
+        .footer-logo { display: flex; align-items: center; gap: 1rem; }
+        .footer-logo-icon { width: 40px; height: 40px; background: linear-gradient(135deg, #ec4899, #f472b6); border-radius: 8px; }
+        .footer-logo-text { font-size: 1.25rem; font-weight: bold; }
+        .footer-tagline { color: #9ca3af; margin-top: 0.5rem; }
+        .footer-links { display: flex; flex-direction: column; gap: 0.5rem; }
+        .footer-link { color: #d1d5db; text-decoration: none; }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid #374151; color: #9ca3af; }
+        
+        /* 動畫 */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 導航 -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">劉</div>
+                <div class="logo-text">劉媽媽的草本茶</div>
+            </div>
+            <div class="nav-links">
+                <a href="#story" class="nav-link">故事</a>
+                <a href="#products" class="nav-link">產品</a>
+                <a href="#contact" class="nav-link">聯絡</a>
+            </div>
+            <button class="menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- 英雄區 -->
+    <section class="hero">
+        <div class="hero-icon">🌱</div>
+        <h1>一杯決明子茶<br><span class="hero-highlight">養活了一家人</span></h1>
+        <p>「以前我媽只賣這個決明子茶，就是靠這個把我們養大的。」三十年市場記憶，從最初的攤位到「決明子」媽媽的溫暖稱呼。</p>
+        <div class="hero-buttons">
+            <a href="#products" class="btn-primary">查看10款產品</a>
+            <a href="#story" class="btn-secondary">閱讀完整故事</a>
+        </div>
+    </section>
+
+    <!-- 故事區 -->
+    <section id="story" class="story">
+        <div class="story-container">
+            <h2>決明子茶的故事</h2>
+            <p class="story-subtitle">三十年市場點滴，一杯茶的溫暖記憶</p>
+            
+            <div class="story-cards">
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-icon">🌅</div>
+                        <div>
+                            <div class="story-tag">1990年代</div>
+                            <div class="story-title">最初的開始</div>
+                        </div>
+                    </div>
+                    <p class="story-content">三十年前，市場裡的那個小攤位，只有一種茶——決明子茶。每天清晨，媽媽帶著孩子們一起準備，那一杯杯溫熱的茶，不只是生意，是全家人生活的希望。</p>
+                    <div class="story-quote">「就是靠這個把我們養大的。」</div>
+                </div>
+                
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-icon">🏷️</div>
+                        <div>
+                            <div class="story-tag">市場稱呼</div>
+                            <div class="story-title">「決明子」媽媽</div>
+                        </div>
+                    </div>
+                    <p class="story-content">在傳統市場裡，人們不記得「劉媽媽」，他們記得的是「決明子」。這個綽號，是三十年來一杯杯茶累積起來的信任，是市場裡最親切的稱呼。</p>
+                    <div class="story-quote">「已經變成我媽的綽號了。」</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 產品區 -->
+    <section id="products" class="products">
+        <div class="products-container">
+            <h2>10款專業草本茶</h2>
+            <p class="products-subtitle">從一杯決明子茶開始，發展出10款專業草本茶，每款都包含劉媽媽三十年市場經驗的智慧。</p>
+            <div class="products-badge">🌱 8款產品含有決明子，傳承最初的配方</div>
+            
+            <div class="products-grid">
+                <!-- 產品 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-emoji">🌿</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-header">
+                            <div>
+                                <div class="product-category">滋補強身</div>
+                                <div class="product-name">七葉膽茶</div>
+                                <div class="product-type">強身茶</div>
+                            </div>
+                            <div class="product-tag">含決明子</div>
+                        </div>
+                        <p class="product-desc">增強體力，提升元氣</p>
+                        <div class="product-ingredients">
+                            <span class="ingredient">七葉膽</span>
+                            <span class="ingredient">白鶴靈芝</span>
+                            <span class="ingredient cassia">決明子</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 產品 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-emoji">🌱</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-header">
+                            <div>
+                                <div class="product-category">舒緩放鬆</div>
+                                <div class="product-name">一條根茶</div>
+                                <div class="product-type">舒活茶</div>
+                            </div>
+                            <div class="product-tag">含決明子</div>
+                        </div>
+                        <p class="product-desc">放鬆肌肉，舒緩不適</p>
+                    </div>
+                </div>
+                
+                <!-- 產品 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-emoji">🌸</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-header">
+                            <div>
+                                <div class="product-category">養顏美容</div>
+                                <div class="product-name">洛神花茶</div>
+                                <div class="product-type">纖體美顏茶</div>
+                            </div>
+                            <div class="product-tag">含決明子</div>
+                        </div>
+                        <p class="product-desc">美容養顏，幫助代謝</p>
+                    </div>
+                </div>
+                
+                <!-- 產品 4 -->
+                <

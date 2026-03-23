@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>劉媽媽的草本茶 - 決明子茶的溫暖記憶</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', 'Noto Sans TC', sans-serif; }
+        
+        /* 響應式菜單 */
+        .mobile-menu {
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        
+        .mobile-menu.open {
+            max-height: 300px;
+        }
+        
+        /* 產品卡片動畫 */
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 決明子閃爍效果 */
+        .cassia-glow {
+            background-color: #fef3c7;
+            border-color: #f59e0b;
+            color: #92400e;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+    </style>
+</head>
+<body class="text-gray-900">
+    <!-- 響應式導航 -->
+    <nav class="bg-white/95 backdrop-blur-sm border-b border-pink-100 sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-pink-500 to-rose-500 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">劉</span>
+                    </div>
+                    <div>
+                        <div class="font-bold text-xl text-gray-900">劉媽媽的草本茶</div>
+                        <div class="text-xs text-gray-500">三十年市場經驗</div>
+                    </div>
+                </div>
+                
+                <!-- 桌面導航 -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#story" class="text-gray-700 hover:text-pink-600 font-medium transition-colors">故事</a>
+                    <a href="#products" class="text-gray-700 hover:text-pink-600 font-medium transition-colors">產品</a>
+                    <a href="#contact" class="text-gray-700 hover:text-pink-600 font-medium transition-colors">聯絡</a>
+                </div>
+                
+                <!-- 移動端菜單按鈕 -->
+                <button id="mobileMenuButton" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- 移動端菜單 -->
+            <div id="mobileMenu" class="mobile-menu md:hidden">
+                <div class="flex flex-col space-y-4 py-4">
+                    <a href="#story" class="text-gray-700 hover:text-pink-600 font-medium transition-colors py-2">決明子茶的故事</a>
+                    <a href="#products" class="text-gray-700 hover:text-pink-600 font-medium transition-colors py-2">10款專業草本茶</a>
+                    <a href="#contact" class="text-gray-700 hover:text-pink-600 font-medium transition-colors py-2">聯絡訂購</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄區 -->
+    <section class="bg-gradient-to-br from-pink-50 to-rose-50 py-20 px-4">
+        <div class="container mx-auto max-w-6xl text-center">
+            <div class="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-pink-500 to-rose-500 rounded-3xl mb-8 shadow-lg">
+                <span class="text-4xl text-white">🌱</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                一杯決明子茶<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-rose-600">養活了一家人</span>
+            </h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
+                「以前我媽只賣這個決明子茶，就是靠這個把我們養大的。」
+                三十年市場記憶，從最初的攤位到「決明子」媽媽的溫暖稱呼。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#products" class="inline-flex items-center justify-center bg-gradient-to-r from-pink-600 to-rose-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    查看10款產品
+                </a>
+                <a href="#story" class="inline-flex items-center justify-center bg-white text-pink-600 border-2 border-pink-200 px-8 py-4 rounded-full font-bold text-lg hover:bg-pink-50 transition-all duration-300 hover:-translate-y-1">
+                    閱讀完整故事
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 故事區 -->
+    <section id="story" class="bg-white py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">決明子茶的故事</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">三十年市場點滴，一杯茶的溫暖記憶</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 mb-20">
+                <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-3xl p-8 shadow-lg">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-md">
+                            <span class="text-3xl">🌅</span>
+                        </div>
+                        <div>
+                            <div class="text-sm text-pink-600 font-semibold uppercase tracking-wider">1990年代</div>
+                            <h3 class="text-2xl font-bold text-gray-900">最初的開始</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                        三十年前，市場裡的那個小攤位，只有一種茶——決明子茶。
+                        每天清晨，媽媽帶著孩子們一起準備，那一杯杯溫熱的茶，
+                        不只是生意，是全家人生活的希望。
+                    </p>
+                    <div class="bg-white/80 rounded-xl p-6 border-l-4 border-amber-500">
+                        <p class="text-amber-800 italic text-lg">「就是靠這個把我們養大的。」</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-8 shadow-lg">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-md">
+                            <span class="text-3xl">🏷️</span>
+                        </div>
+                        <div>
+                            <div class="text-sm text-amber-600 font-semibold uppercase tracking-wider">市場稱呼</div>
+                            <h3 class="text-2xl font-bold text-gray-900">「決明子」媽媽</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                        在傳統市場裡，人們不記得「劉媽媽」，他們記得的是「決明子」。
+                        這個綽號，是三十年來一杯杯茶累積起來的信任，
+                        是市場裡最親切的稱呼。
+                    </p>
+                    <div class="bg-white/80 rounded-xl p-6 border-l-4 border-orange-500">
+                        <p class="text-orange-800 italic text-lg">「已經變成我媽的綽號了。」</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 產品區 -->
+    <section id="products" class="bg-gradient-to-b from-gray-50 to-white py-20 px-4">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">10款專業草本茶</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    從一杯決明子茶開始，發展出10款專業草本茶，每款都包含劉媽媽三十年市場經驗的智慧。
+                </p>
+                <div class="mt-8 inline-flex items-center space-x-2 bg-amber-100 text-amber-800 px-6 py-3 rounded-full">
+                    <span class="font-semibold">🌱 8款產品含有決明子，傳承最初的配方</span>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- 產品卡片 -->
+                <div class="product-card border-green-600 bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="relative h-48 bg-gradient-to-br from-green-100 to-emerald-100">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="text-6xl mb-2">🌿</div>
+                                <div class="text-green-700 font-bold">七葉膽茶</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <div class="text-xs uppercase tracking-widest text-green-600 font-bold mb-1">滋補強身</div>
+                                <h3 class="text-2xl font-bold text-gray-900">七葉膽茶</h3>
+                                <div class="text-green-700 font-medium mt-2">強身茶</div>
+                            </div>
+                            <div class="text-green-700 bg-green-100 px-3 py-1 rounded-full text-sm font-semibold">
+                                含決明子
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6">增強體力，提升元氣</p>
+                    </div>
+                </div>
+                
+                <div class="product-card border-orange-600 bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="relative h-48 bg-gradient-to-br from-orange-100 to-amber-100">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="text-6xl mb-2">🌱</div>
+                                <div class="text-orange-700 font-bold">一條根茶</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <div class="text-xs uppercase tracking-widest text-orange-600 font-bold mb-1">舒緩放鬆</div>
+                                <h3 class="text-2xl font-bold text-gray-900">一條根茶</h3>
+                                <div class="text-orange-700 font-medium mt-2">舒活茶</div>
+                            </div>
+                            <div class="text-orange-700 bg-orange-100 px-3 py-1 rounded-full text-sm font-semibold">
+                                含決明子
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6">放鬆肌肉，舒緩不適</p>
+                    </div>
+                </div>
+                
+                <div class="product-card border-pink-600 bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="relative h-48 bg-gradient-to-br from-pink-100 to-rose-100">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="text-6xl mb-2">🌸</div>
+                                <div class="text-pink-700 font-bold">洛神花茶</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <div class="text-xs uppercase tracking-widest text-pink-600 font-bold mb-1">養顏美容</div>
+                                <h3 class="text-2xl font-bold text-gray-900">洛神花茶</h3>
+                                <div class="text-pink-700 font-medium mt-2">纖體美顏茶</div>
+                            </div>
+                            <div class="text-pink-700 bg-pink-100 px-3 py-1 rounded-full text-sm font-semibold">
+                                含決明子
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6">美容養顏，幫助代謝</p>
+                    </div>
+                </div>
+                
+                <div class="product-card border-teal-600 bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="relative h-48 bg-gradient-to-br from-teal-100 to-emerald-100">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="text-6xl mb-2">🍃</div>
+                                <div class="text-teal-700 font-bold">魚腥草茶</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <div class="text-xs uppercase tracking-widest text-teal-600 font-bold mb-1">健康防護</div>
+                                <h3 class="text-2xl font-bold text-gray-900">魚腥草茶</h3>
+                                <div class="text-teal-700 font-medium mt-2">防護茶</div>
+                            </div>
+                            <div class="text-teal-700 bg-teal-100 px-3 py-1 rounded-full text-sm font-semibold">
+                                含決明子
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6">增強防護，維持健康</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 更多產品 -->
+            <div class="text-center mt-16">
+                <div class="inline-flex items-center space-x-4 bg-white rounded-2xl p-6 shadow-lg">
+                    <div class="text-3xl">➕</div>
+                    <div class="text-left">
+                        <div class="font-bold text-gray-900 text-lg">還有6款專業草本茶</div>
+                        <div class="text-gray-600">雞角刺茶、金線蓮茶、辣木茶、枸杞菊花茶、桑葉苦瓜茶、桑葉茶</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯絡區 -->
+    <section id="contact" class="bg-gradient-to-br from-green-50 to-emerald-50 py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden">
+                <div class="flex flex-col lg:flex-row">
+                    <div class="lg:w-2/3 p-8 lg:p-12">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">立即訂購與諮詢</h2>
+                        <p class="text-gray-700 text-lg mb-8 leading-relaxed">
+                            掃描 QR Code 加入官方 LINE，劉媽媽親自為您推薦適合的茶飲，
+                            獲取最新優惠資訊與健康茶飲建議。三十年市場經驗，為您選擇最適合的茶。
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                                    <span class="text-green-700 font-bold text-xl">@</span>
+                                </div>
+                                <div>
+                                    <div class
