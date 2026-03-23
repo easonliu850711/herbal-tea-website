@@ -1,0 +1,39 @@
+{
+  "photo_template": {
+    "id": "自動生成",
+    "filename": "原始檔案名",
+    "optimized_filename": "優化後檔案名",
+    "category": "分類",
+    "subcategory": "子分類",
+    "title": "照片標題",
+    "description": "照片描述",
+    "story": "背後故事",
+    "date_taken": "拍攝日期",
+    "location": "拍攝地點",
+    "people": ["相關人物"],
+    "tags": ["標籤1", "標籤2"],
+    "emotional_value": {
+      "authenticity": 0,
+      "warmth": 0,
+      "storytelling": 0,
+      "professionalism": 0
+    },
+    "usage": {
+      "homepage": false,
+      "gallery": true,
+      "story": false,
+      "product": false
+    },
+    "technical": {
+      "format": "jpg/png/webp",
+      "size_kb": 0,
+      "dimensions": "寬x高",
+      "color_profile": "sRGB"
+    },
+    "upload_info": {
+      "timestamp": "上傳時間",
+      "processed_by": "Nosae",
+      "processing_time_ms": 0
+    }
+  }
+}

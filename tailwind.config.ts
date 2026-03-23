@@ -57,7 +57,8 @@ const config: Config = {
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.3s ease-out',
-        'pulse-slow': 'pulse 3s infinite',
+        'pulse-slow': 'pulse 3s ease-in-out infinite',
+        'scroll-slow': 'scroll 30s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -68,24 +69,6 @@ const config: Config = {
           '0%': { transform: 'translateY(10px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
-      },
-    },
-  },
-  plugins: [],
-}
-export default config
-
-// 自定義動畫
-const config: Config = {
-  // ... existing config ...
-  theme: {
-    extend: {
-      // ... existing extensions ...
-      animation: {
-        'scroll-slow': 'scroll 30s linear infinite',
-        'pulse-slow': 'pulse 3s ease-in-out infinite',
-      },
-      keyframes: {
         scroll: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
@@ -93,4 +76,6 @@ const config: Config = {
       },
     },
   },
+  plugins: [],
 }
+export default config

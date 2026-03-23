@@ -1,0 +1,35 @@
+{
+  "id": "interaction-IMG_20190511_122401",
+  "original_filename": "IMG_20190511_122401.jpg",
+  "category": "interaction",
+  "subcategory": "memory",
+  "title": "珍貴的市場回憶",
+  "description": "三十年市場點滴的溫暖記錄",
+  "story": "這些照片記錄了劉媽媽在傳統市場三十年的點點滴滴，從攤位前的親切招呼，到每一包茶的用心包裝。",
+  "date_taken": "1990s-2000s",
+  "location": "傳統市場",
+  "people": ["劉媽媽", "家人", "老顧客"],
+  "tags": ["決明子茶", "市場回憶", "家庭記憶", "三十年經驗", "溫暖互動"],
+  "emotional_value": {
+    "authenticity": 95,
+    "warmth": 98,
+    "storytelling": 90,
+    "professionalism": 85,
+    "nostalgia": 95
+  },
+  "significance": {
+    "family": "養活一家人的生計來源",
+    "market": "三十年市場信任累積",
+    "identity": "「決明子」媽媽的綽號來源",
+    "legacy": "家庭故事的珍貴記錄"
+  },
+  "usage": {
+    "homepage": true,
+    "gallery": true,
+    "story": true,
+    "timeline": true
+  },
+  "quote": "「以前我媽只賣這個決明子茶，就是靠這個把我們養大的。」",
+  "processed_by": "Nosae 🌸",
+  "process_date": "2026-03-23T23:08:11+09:00"
+}

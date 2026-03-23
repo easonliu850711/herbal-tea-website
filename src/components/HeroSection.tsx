@@ -32,16 +32,16 @@ const HeroSection = () => {
 
             {/* Main Title */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              記憶中的市場溫度，
-              <span className="text-gradient block mt-2">一杯茶的溫暖傳承</span>
+              從一杯決明子茶開始，
+              <span className="text-gradient block mt-2">養活一家人的溫暖記憶</span>
             </h1>
 
             {/* Description with Photo Reference */}
             <div className="space-y-4">
               <p className="text-xl text-neutral-700 leading-relaxed">
-                這些照片記錄了劉媽媽在傳統市場三十年的點點滴滴。
-                從攤位前的親切招呼，到每一包茶的用心包裝，
-                我們將這份市場的溫度和媽媽的用心，完整帶到您的面前。
+                「以前我媽只賣這個決明子茶，就是靠這個把我們養大的。」
+                三十年來，市場裡的人們都叫她「決明子」，
+                這個名字，承載了一家人的成長，也見證了無數溫暖的相遇。
               </p>
               
               {/* Photo Highlights */}
@@ -59,12 +59,12 @@ const HeroSection = () => {
             {/* Features with Photo Integration */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {[
-                { icon: '📸', text: '真實照片記錄' },
-                { icon: '🌿', text: '天然草本原料' },
-                { icon: '❤️', text: '媽媽的用心' },
-                { icon: '⏳', text: '三十年經驗' },
+                { icon: '🌱', text: '最初的決明子茶' },
+                { icon: '👵', text: '「決明子」媽媽' },
+                { icon: '❤️', text: '養活一家人的愛' },
+                { icon: '⏳', text: '三十年市場記憶' },
                 { icon: '🏪', text: '傳統市場攤位' },
-                { icon: '💬', text: '顧客真實見證' },
+                { icon: '💬', text: '顧客溫暖見證' },
               ].map((feature, index) => (
                 <motion.div
                   key={index}
@@ -108,8 +108,8 @@ const HeroSection = () => {
                       <Star key={star} className="w-4 h-4 text-yellow-400 fill-current" />
                     ))}
                   </div>
-                  <p className="font-semibold">「看到照片就像回到市場一樣親切」</p>
-                  <p className="text-sm text-neutral-500">超過 500+ 位老顧客的真實評價</p>
+                  <p className="font-semibold">「從決明子茶喝到現在，就像家人一樣」</p>
+                  <p className="text-sm text-neutral-500">三十年來，市場裡的老朋友們</p>
                 </div>
               </div>
             </div>
@@ -149,7 +149,9 @@ const HeroSection = () => {
               <div className={`w-full h-full ${i % 2 === 0 ? 'bg-primary-200' : 'bg-secondary-200'} flex items-center justify-center`}>
                 <div className="text-center">
                   <Camera className="w-8 h-8 text-white mx-auto mb-2" />
-                  <span className="text-white text-sm font-medium">攤位照片 {i}</span>
+                  <span className="text-white text-sm font-medium">
+                    {i === 1 ? '決明子茶' : i === 2 ? '市場攤位' : i === 3 ? '媽媽的用心' : `溫暖記憶 ${i}`}
+                  </span>
                 </div>
               </div>
             </div>

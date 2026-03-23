@@ -10,38 +10,78 @@ const PhotoGallery = () => {
 
   const photoCategories = [
     {
+      title: '珍貴回憶',
+      description: '決明子茶的溫暖記憶',
+      count: 4,
+      color: 'from-rose-100 to-rose-50',
+      special: true,
+      quote: '「以前我媽只賣這個決明子茶，就是靠這個把我們養大的。」'
+    },
+    {
       title: '攤位環境',
       description: '傳統市場的溫暖場景',
-      count: 12,
+      count: 5,
       color: 'from-primary-100 to-primary-50'
     },
     {
-      title: '產品特寫',
-      description: '草本原料的品質展示',
-      count: 8,
+      title: '行銷素材',
+      description: '日本客人的宣傳海報',
+      count: 4,
       color: 'from-secondary-100 to-secondary-50'
     },
     {
       title: '互動場景',
       description: '與顧客的真實互動',
-      count: 15,
+      count: 4,
       color: 'from-amber-100 to-amber-50'
-    },
-    {
-      title: '製作過程',
-      description: '手工包裝的用心細節',
-      count: 10,
-      color: 'from-emerald-100 to-emerald-50'
     }
   ]
 
   const samplePhotos = [
-    { id: 1, category: '攤位環境', title: '早晨的市場攤位', description: '劉媽媽正在準備一天的開始' },
-    { id: 2, category: '產品特寫', title: '精選草本原料', description: '嚴選的天然草本材料' },
-    { id: 3, category: '互動場景', title: '老顧客的回訪', description: '三十年不變的親切招呼' },
-    { id: 4, category: '製作過程', title: '手工包裝過程', description: '每一包茶都用心包裝' },
-    { id: 5, category: '攤位環境', title: '市場的日常', description: '充滿人情味的市場氛圍' },
-    { id: 6, category: '產品特寫', title: '茶湯的色澤', description: '天然草本的美麗顏色' },
+    { 
+      id: 1, 
+      category: '珍貴回憶', 
+      title: '最初的決明子茶攤位', 
+      description: '三十年前養活一家人的溫暖記憶',
+      year: '1990s',
+      emotion: '懷舊溫暖'
+    },
+    { 
+      id: 2, 
+      category: '珍貴回憶', 
+      title: '傳統市場的日常', 
+      description: '劉媽媽三十年市場經驗的真實記錄',
+      year: '2000s',
+      emotion: '真實親切'
+    },
+    { 
+      id: 3, 
+      category: '珍貴回憶', 
+      title: '「決明子」媽媽', 
+      description: '市場裡最溫暖的稱呼',
+      year: '三十年來',
+      emotion: '情感深厚'
+    },
+    { 
+      id: 4, 
+      category: '珍貴回憶', 
+      title: '家庭的溫暖記憶', 
+      description: '一杯茶承載的成長故事',
+      year: '永恆',
+      emotion: '家庭之愛'
+    },
+    { 
+      id: 5, 
+      category: '攤位環境', 
+      title: '市場攤位場景', 
+      description: '劉媽媽的傳統市場攤位'
+    },
+    { 
+      id: 6, 
+      category: '行銷素材', 
+      title: '日本客人海報', 
+      description: '吸引日本客人的宣傳材料'
+    },
   ]
 
   const handlePhotoClick = (index: number) => {
@@ -62,16 +102,19 @@ const PhotoGallery = () => {
       <div className="container-custom section-padding">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 rounded-2xl mb-4">
-            <Camera className="w-8 h-8 text-primary-600" />
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-rose-100 rounded-2xl mb-4">
+            <Camera className="w-8 h-8 text-rose-600" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-            劉媽媽的市場記憶
+            決明子茶的溫暖記憶
           </h2>
           <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-            這些照片記錄了劉媽媽在傳統市場三十年的點點滴滴，
-            從攤位前的親切招呼到每一包茶的用心包裝。
+            「以前我媽只賣這個決明子茶，就是靠這個把我們養大的。」
+            這些珍貴照片記錄了三十年市場點滴，從最初的攤位到「決明子」媽媽的溫暖稱呼。
           </p>
+          <div className="mt-4 inline-flex items-center space-x-2 bg-rose-50 text-rose-700 px-4 py-2 rounded-full">
+            <span className="text-sm font-medium">❤️ 4張珍貴回憶照片已加入</span>
+          </div>
         </div>
 
         {/* Photo Categories */}
@@ -130,9 +173,25 @@ const PhotoGallery = () => {
                 </div>
 
                 {/* Category Badge */}
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                  <span className="text-sm font-semibold text-neutral-900">{photo.category}</span>
+                <div className={`absolute top-4 left-4 backdrop-blur-sm px-3 py-1 rounded-full ${
+                  photo.category === '珍貴回憶' 
+                    ? 'bg-rose-500/90 text-white' 
+                    : 'bg-white/90 text-neutral-900'
+                }`}>
+                  <span className="text-sm font-semibold flex items-center">
+                    {photo.category === '珍貴回憶' && '❤️ '}
+                    {photo.category}
+                  </span>
                 </div>
+                
+                {/* Memory Badge for 珍貴回憶 */}
+                {photo.category === '珍貴回憶' && (
+                  <div className="absolute top-4 right-4 bg-amber-500/90 backdrop-blur-sm px-3 py-1 rounded-full">
+                    <span className="text-sm font-semibold text-white flex items-center">
+                      ⏳ {photo.year}
+                    </span>
+                  </div>
+                )}
 
                 {/* Hover Actions */}
                 <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
