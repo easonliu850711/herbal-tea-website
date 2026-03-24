@@ -201,6 +201,101 @@ export default function StoryPage() {
         </div>
       </div>
 
+      {/* Business Card Display */}
+      <div className="max-w-6xl mx-auto px-4 md:px-8 py-16">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-stone-900 mb-4">品牌識別</h2>
+          <p className="text-stone-600 max-w-2xl mx-auto">
+            三十年市場經驗的專業呈現，從名片到QR Code的完整品牌識別
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {/* Business Card */}
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-stone-100">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-stone-900 mb-2">劉媽媽の草本茶 名片</h3>
+              <p className="text-stone-600">三十年市場經驗的專業呈現</p>
+            </div>
+            
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-amber-200 to-yellow-200 rounded-2xl blur opacity-30"></div>
+              <div className="relative bg-gradient-to-br from-white to-stone-50 rounded-xl p-8 border border-stone-200 shadow-inner">
+                {/* 名片展示 */}
+                <div className="aspect-[1050/600] max-w-md mx-auto rounded-lg overflow-hidden border-2 border-stone-300 bg-gradient-to-br from-green-50 to-amber-50">
+                  <div className="w-full h-full flex flex-col items-center justify-center p-6">
+                    <div className="text-center">
+                      <div className="text-4xl mb-4">📇</div>
+                      <h4 className="text-xl font-bold text-stone-900 mb-2">劉媽媽の草本茶</h4>
+                      <p className="text-stone-600 text-sm mb-4">三十年市場經驗的溫暖傳承</p>
+                      <div className="space-y-2 text-left">
+                        <div className="flex items-center gap-2">
+                          <span className="text-stone-500">📞</span>
+                          <span className="text-stone-700">電話：09XX-XXX-XXX</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-stone-500">📱</span>
+                          <span className="text-stone-700">LINE：@liu_mama_tea</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-stone-500">📍</span>
+                          <span className="text-stone-700">屏東高雄各地市場</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-center text-sm text-stone-500 mt-4">
+                  {/* 實際名片照片路徑：/images/branding/066a2b88-93eb-41dd-bdc7-8b435bd4e758_original.jpg */}
+                  實際名片設計載入中
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* QR Code Display */}
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-stone-100">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-stone-900 mb-2">LINE 官方帳號 QR Code</h3>
+              <p className="text-stone-600">掃碼加入，獲取專屬服務與優惠</p>
+            </div>
+            
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-green-200 to-emerald-200 rounded-2xl blur opacity-30"></div>
+              <div className="relative bg-gradient-to-br from-white to-stone-50 rounded-xl p-8 border border-stone-200 shadow-inner">
+                {/* QR Code 展示 */}
+                <div className="aspect-square max-w-xs mx-auto rounded-lg overflow-hidden border-2 border-stone-300 bg-white">
+                  <div className="w-full h-full flex items-center justify-center">
+                    <div className="text-center p-6">
+                      <div className="text-6xl mb-4">📱</div>
+                      <p className="text-lg font-bold text-stone-900">LINE QR Code</p>
+                      <p className="text-stone-600 text-sm mt-2">掃描加入官方帳號</p>
+                      <div className="mt-4 inline-block px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
+                        @liu_mama_tea
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-center text-sm text-stone-500 mt-4">
+                  {/* 實際 QR Code 照片路徑：/images/branding/ 中的相關檔案 */}
+                  實際 QR Code 設計載入中
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 p-4 bg-green-50 rounded-lg border border-green-100">
+              <h4 className="font-semibold text-green-800 mb-2">加入官方 LINE 的好處：</h4>
+              <ul className="text-sm text-green-700 space-y-1">
+                <li>• 一對一產品諮詢與健康建議</li>
+                <li>• 最新優惠資訊優先通知</li>
+                <li>• 訂單即時追蹤與客服</li>
+                <li>• 劉媽媽親自分享養生知識</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Call to Action */}
       <div className="bg-gradient-to-r from-green-50 to-emerald-50 py-16">
         <div className="max-w-4xl mx-auto px-4 md:px-8 text-center">
