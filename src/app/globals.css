@@ -1,18 +1,38 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* 基礎顏色定義 - 確保編譯器認得這些 class */
+  --color-primary-50: #ecfdf5;
+  --color-primary-400: #34d399;
+  --color-primary-500: #10b981;
+  --color-primary-600: #059669;
+
+  --color-secondary-50: #fefce8;
+  --color-secondary-500: #eab308;
+
+  --color-neutral-900: #171717;
+  --color-neutral-100: #f5f5f5;
+
+  /* 邊框變數對接 */
+  --color-border: #e5e7eb;
+}
 
 @layer base {
   * {
     @apply border-border;
   }
-  
+
   body {
     @apply bg-white text-neutral-900;
     font-family: 'Inter', 'Noto Sans TC', system-ui, sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-bold tracking-tight;
   }
 
@@ -39,24 +59,15 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-primary-500 text-white px-6 py-3 rounded-xl font-semibold 
-           hover:bg-primary-600 transition-all duration-300 
-           transform hover:-translate-y-1 hover:shadow-lg
-           active:scale-95;
+    @apply bg-primary-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-primary-600 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg active:scale-95;
   }
 
   .btn-secondary {
-    @apply bg-white text-primary-500 border-2 border-primary-500 
-           px-6 py-3 rounded-xl font-semibold
-           hover:bg-primary-50 transition-all duration-300
-           transform hover:-translate-y-1 hover:shadow-lg
-           active:scale-95;
+    @apply bg-white text-primary-500 border-2 border-primary-500 px-6 py-3 rounded-xl font-semibold hover:bg-primary-50 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg active:scale-95;
   }
 
   .card {
-    @apply bg-white rounded-2xl shadow-lg p-6
-           hover:shadow-xl transition-shadow duration-300
-           border border-neutral-100;
+    @apply bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 border border-neutral-100;
   }
 
   .section-padding {

@@ -11,6 +11,7 @@ const Navbar = () => {
     { name: '首頁', href: '/' },
     { name: '所有產品', href: '/products' },
     { name: '品牌故事', href: '/story' },
+    { name: '草本小撇步', href: '/tips' },
     { name: '訂購方式', href: '/order' },
   ]
 
@@ -25,7 +26,7 @@ const Navbar = () => {
             </div>
             <div className="hidden sm:block">
               <h1 className="text-xl font-bold text-neutral-900">劉媽媽の草本茶</h1>
-              <p className="text-xs text-neutral-500">三十年市場經驗的溫暖傳承</p>
+              <p className="text-xs text-neutral-500">從決明子到草本茶，用茶養大兩個小孩的媽媽</p>
             </div>
           </Link>
 

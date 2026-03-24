@@ -69,10 +69,10 @@ export default function StoryPage() {
             <Leaf className="w-8 h-8 text-green-700" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-green-900 mb-4">
-            劉媽媽の草本茶
+            從決明子到草本茶，用茶養大兩個小孩的媽媽
           </h1>
           <p className="text-2xl md:text-3xl font-light text-stone-600 mb-8">
-            三十年市場經驗的溫暖傳承
+            決明子是劉媽媽在市場的綽號，即使現在已經換成了賣草本茶也不能改變他曾經靠賣茶葉養大兩個小孩的偉大事實
           </p>
           <div className="max-w-3xl mx-auto">
             <p className="text-lg text-stone-700 leading-relaxed">
@@ -238,6 +238,10 @@ export default function StoryPage() {
                           <span className="text-stone-700">LINE：@910jrwoy</span>
                         </div>
                         <div className="flex items-center gap-2">
+                          <span className="text-stone-500">✉️</span>
+                          <span className="text-stone-700">郵箱：imori850711@gmail.com</span>
+                        </div>
+                        <div className="flex items-center gap-2">
                           <span className="text-stone-500">📍</span>
                           <span className="text-stone-700">大台北地區及宅配服務 (詳情請洽官方LINE)</span>
                         </div>
@@ -303,7 +307,7 @@ export default function StoryPage() {
             喝一杯有故事的茶
           </h2>
           <p className="text-stone-700 text-lg mb-8 max-w-2xl mx-auto">
-            每一包茶都承載著三十年的市場智慧、媽媽的用心，
+            每一包茶都承載著從決明子到草本茶的轉變、媽媽用茶養大兩個小孩的用心，
             以及一個兒子對媽媽最深的感恩。
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

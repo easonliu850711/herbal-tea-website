@@ -231,13 +231,37 @@ export default function OrderPage() {
                   • 訂單即時追蹤<br/>
                   • 健康茶飲建議
                 </p>
-                <div className="flex items-center gap-4 text-green-700">
-                  <div className="bg-green-100 p-3 rounded-full">
-                    <QrCode className="w-6 h-6" />
+                <div className="space-y-3">
+                  <div className="flex items-center gap-4 text-green-700">
+                    <div className="bg-green-100 p-3 rounded-full">
+                      <QrCode className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <span className="font-semibold">LINE ID: @910jrwoy</span>
+                      <p className="text-sm text-stone-500 mt-1">或搜尋「劉媽媽の草本茶」</p>
+                    </div>
                   </div>
-                  <div>
-                    <span className="font-semibold">LINE ID: @910jrwoy</span>
-                    <p className="text-sm text-stone-500 mt-1">或搜尋「劉媽媽の草本茶」</p>
+                  <div className="flex items-center gap-4 text-green-700">
+                    <div className="bg-green-100 p-3 rounded-full">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <span className="font-semibold">電話: 0956-111-636</span>
+                      <p className="text-sm text-stone-500 mt-1">服務時間: 09:00-18:00</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4 text-green-700">
+                    <div className="bg-green-100 p-3 rounded-full">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <span className="font-semibold">郵箱: imori850711@gmail.com</span>
+                      <p className="text-sm text-stone-500 mt-1">24小時內回覆</p>
+                    </div>
                   </div>
                 </div>
               </div>

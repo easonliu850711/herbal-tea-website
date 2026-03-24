@@ -159,11 +159,29 @@ const ProductShowcase = () => {
             <p className="text-stone-500 mb-4 max-w-xs text-sm">
               掃描 QR Code 加入我們的官方 LINE，獲取最新優惠資訊與健康茶飲建議。
             </p>
-            <div className="flex items-center gap-4 text-green-700">
-               <div className="bg-green-100 p-2 rounded-full">
+            <div className="space-y-3">
+              <div className="flex items-center gap-4 text-green-700">
+                <div className="bg-green-100 p-2 rounded-full">
                   <ExternalLink className="w-5 h-5" />
-               </div>
-               <span className="font-semibold">LINE: @little_farmer</span>
+                </div>
+                <span className="font-semibold">LINE: @910jrwoy</span>
+              </div>
+              <div className="flex items-center gap-4 text-green-700">
+                <div className="bg-green-100 p-2 rounded-full">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                  </svg>
+                </div>
+                <span className="font-semibold">電話: 0956-111-636</span>
+              </div>
+              <div className="flex items-center gap-4 text-green-700">
+                <div className="bg-green-100 p-2 rounded-full">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <span className="font-semibold">郵箱: imori850711@gmail.com</span>
+              </div>
             </div>
           </div>
           
@@ -179,7 +197,7 @@ const ProductShowcase = () => {
         </div>
         
         <p className="text-stone-400 text-[10px] mt-16 tracking-widest uppercase">
-          © 2024 劉媽媽の草本茶 | 三十年市場經驗的溫暖傳承
+          © 2024 劉媽媽の草本茶 | 從決明子到草本茶，用茶養大兩個小孩的媽媽
         </p>
       </footer>
     </div>
