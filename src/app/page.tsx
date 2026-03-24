@@ -5,6 +5,20 @@ import { Leaf, Info, ExternalLink, QrCode } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Home() {
+  // 產品圖片映射 - 根據 product-closeup 目錄檔案
+  const productImages = {
+    "一條根茶": "/images/product-closeup/product-closeup-20260323_234211-000.png", // 000
+    "七葉膽茶": "/images/product-closeup/product-closeup-20260323_234211-001.png", // 001
+    "桑葉苦瓜茶": "/images/product-closeup/product-closeup-20260323_234211-002.png", // 002 (商業苦瓜茶)
+    "枸杞菊花茶": "/images/product-closeup/product-closeup-20260323_234211-003.png", // 003
+    "桑葉茶": "/images/product-closeup/product-closeup-20260323_234211-004.png", // 004 (商業茶)
+    "洛神花茶": "/images/product-closeup/product-closeup-20260323_234211-005.png", // 005
+    "辣木茶": "/images/product-closeup/product-closeup-20260323_234211-006.png", // 006
+    "金線蓮茶": "/images/product-closeup/product-closeup-20260323_234211-007.png", // 007
+    "魚腥草茶": "/images/product-closeup/product-closeup-20260323_234211-008.png", // 008
+    "雞角刺茶": "/images/product-closeup/product-closeup-20260323_234211-009.png"  // 009 (雞腳刺茶)
+  };
+
   const products = [
     {
       name: "七葉膽茶",
@@ -113,20 +127,25 @@ export default function Home() {
             key={index}
             className={`group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border-l-8 ${product.color} flex flex-col sm:flex-row`}
           >
-            {/* Image Placeholder - Typically you would use actual images here */}
-            <div className="w-full sm:w-48 bg-stone-100 flex items-center justify-center p-6 relative overflow-hidden">
-               <div className="absolute inset-0 opacity-10 flex items-center justify-center">
-                  <Leaf className="w-32 h-32" />
-               </div>
-               <div className="relative text-center">
-                  <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3 shadow-sm border border-stone-200">
-                    <p className="text-[10px] text-stone-400 mb-1">PACKAGING</p>
-                    <p className="text-xs font-bold text-stone-700">{product.name}</p>
-                    <div className="mt-2 text-[9px] bg-green-100 text-green-800 px-2 py-0.5 rounded-full inline-block">
-                      20包入
-                    </div>
+            {/* 產品圖片 - 使用實際照片 */}
+            <div className="w-full sm:w-48 bg-stone-100 relative overflow-hidden">
+              <div className="absolute inset-0">
+                <Image
+                  src={productImages[product.name as keyof typeof productImages] || "/images/product-closeup/product-closeup-20260323_234211-000.png"}
+                  alt={`${product.name} - ${product.subtitle}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, 192px"
+                />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
+                <div className="text-center">
+                  <p className="text-xs font-bold text-white">{product.name}</p>
+                  <div className="mt-1 text-[10px] bg-green-600/80 text-white px-2 py-0.5 rounded-full inline-block">
+                    20包入
                   </div>
-               </div>
+                </div>
+              </div>
             </div>
 
             {/* Content Details */}

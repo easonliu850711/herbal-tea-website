@@ -7,18 +7,18 @@ import Image from 'next/image';
 const ProductShowcase = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  // 產品圖片映射
+  // 產品圖片映射 - 根據 product-closeup 目錄檔案
   const productImages = {
-    "七葉膽茶": "/images/products/product_photos_original.jpg",
-    "一條根茶": "/images/products/product_photos_2_original.jpg",
-    "洛神花茶": "/images/products/39dcb128-8275-421f-b01f-f58b75f14e69_original.jpg",
-    "雞角刺茶": "/images/products/57a2b52b-4ec7-4188-8ad0-97285ac922c4_original.jpg",
-    "魚腥草茶": "/images/products/59397b16-a65a-4c7d-a8d7-d317e2e109e4_original.jpg",
-    "金線蓮茶": "/images/products/product_photos_original.jpg", // 暫時使用相同圖片
-    "辣木茶": "/images/products/product_photos_2_original.jpg", // 暫時使用相同圖片
-    "枸杞菊花茶": "/images/products/39dcb128-8275-421f-b01f-f58b75f14e69_original.jpg", // 暫時使用相同圖片
-    "桑葉苦瓜茶": "/images/products/57a2b52b-4ec7-4188-8ad0-97285ac922c4_original.jpg", // 暫時使用相同圖片
-    "桑葉茶": "/images/products/59397b16-a65a-4c7d-a8d7-d317e2e109e4_original.jpg" // 暫時使用相同圖片
+    "一條根茶": "/images/product-closeup/product-closeup-20260323_234211-000.png", // 000
+    "七葉膽茶": "/images/product-closeup/product-closeup-20260323_234211-001.png", // 001
+    "桑葉苦瓜茶": "/images/product-closeup/product-closeup-20260323_234211-002.png", // 002 (商業苦瓜茶)
+    "枸杞菊花茶": "/images/product-closeup/product-closeup-20260323_234211-003.png", // 003
+    "桑葉茶": "/images/product-closeup/product-closeup-20260323_234211-004.png", // 004 (商業茶)
+    "洛神花茶": "/images/product-closeup/product-closeup-20260323_234211-005.png", // 005
+    "辣木茶": "/images/product-closeup/product-closeup-20260323_234211-006.png", // 006
+    "金線蓮茶": "/images/product-closeup/product-closeup-20260323_234211-007.png", // 007
+    "魚腥草茶": "/images/product-closeup/product-closeup-20260323_234211-008.png", // 008
+    "雞角刺茶": "/images/product-closeup/product-closeup-20260323_234211-009.png"  // 009 (雞腳刺茶)
   };
 
   const products = [
