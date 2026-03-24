@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Menu, X, ShoppingBag, Heart } from 'lucide-react'
+import { Menu, X, ShoppingBag, Heart, Leaf } from 'lucide-react'
 import Link from 'next/link'
 
 const Navbar = () => {
@@ -10,9 +10,8 @@ const Navbar = () => {
   const navItems = [
     { name: '首頁', href: '/' },
     { name: '所有產品', href: '/products' },
-    { name: '關於我們', href: '/about' },
-    { name: '養生知識', href: '/knowledge' },
-    { name: '聯絡我們', href: '/contact' },
+    { name: '品牌故事', href: '/story' },
+    { name: '訂購方式', href: '/order' },
   ]
 
   return (
@@ -21,11 +20,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-lg">劉</span>
+            <div className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center">
+              <Leaf className="w-6 h-6 text-white" />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-neutral-900">劉媽媽的草本茶</h1>
+              <h1 className="text-xl font-bold text-neutral-900">劉媽媽の草本茶</h1>
               <p className="text-xs text-neutral-500">三十年市場經驗的溫暖傳承</p>
             </div>
           </Link>
