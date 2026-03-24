@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { ShoppingBag, Truck, Store, QrCode, CreditCard, Package, Shield, Clock } from 'lucide-react'
+import { ShoppingBag, Truck, Store, QrCode, CreditCard, Package, Shield, Clock, Instagram } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -262,6 +262,15 @@ export default function OrderPage() {
                     <div>
                       <span className="font-semibold">郵箱: imori850711@gmail.com</span>
                       <p className="text-sm text-stone-500 mt-1">24小時內回覆</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4 text-green-700">
+                    <div className="bg-green-100 p-3 rounded-full">
+                      <Instagram className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <span className="font-semibold">Instagram: @herbaltea_liu0711</span>
+                      <p className="text-sm text-stone-500 mt-1">最新產品與生活分享</p>
                     </div>
                   </div>
                 </div>

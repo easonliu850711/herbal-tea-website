@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
-import { Leaf, Info, ExternalLink, QrCode } from 'lucide-react';
+import { Leaf, Info, ExternalLink, QrCode, Instagram } from 'lucide-react';
 import Image from 'next/image';
 
 const ProductShowcase = () => {
@@ -201,6 +201,12 @@ const ProductShowcase = () => {
                   </svg>
                 </div>
                 <span className="font-semibold">郵箱: imori850711@gmail.com</span>
+              </div>
+              <div className="flex items-center gap-4 text-green-700">
+                <div className="bg-green-100 p-2 rounded-full">
+                  <Instagram className="w-5 h-5" />
+                </div>
+                <span className="font-semibold">Instagram: @herbaltea_liu0711</span>
               </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Leaf, Heart, Clock, Users, Award, Coffee } from 'lucide-react'
+import { Leaf, Heart, Clock, Users, Award, Coffee, Instagram } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -276,6 +276,62 @@ export default function StoryPage() {
                 <li>• 訂單即時追蹤與客服</li>
                 <li>• 劉媽媽親自分享養生知識</li>
               </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Instagram Display */}
+      <div className="max-w-6xl mx-auto px-4 md:px-8 py-16">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-stone-900 mb-4">關注我們的 Instagram</h2>
+          <p className="text-stone-600 max-w-2xl mx-auto">
+            追蹤 @herbaltea_liu0711，獲取最新產品資訊、市場日常與養生知識分享
+          </p>
+        </div>
+
+        <div className="bg-gradient-to-r from-pink-50 to-rose-50 rounded-2xl p-8 border border-pink-100">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="text-center md:text-left">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full mb-6">
+                <Instagram className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-stone-900 mb-4">@herbaltea_liu0711</h3>
+              <p className="text-stone-700 mb-6">
+                在 Instagram 上分享：<br/>
+                • 最新產品發布與優惠<br/>
+                • 市場攤位的日常點滴<br/>
+                • 草本茶的養生知識<br/>
+                • 顧客的真實回饋與故事
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center gap-4 text-pink-700">
+                  <div className="bg-pink-100 p-3 rounded-full">
+                    <Instagram className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <span className="font-semibold">Instagram: @herbaltea_liu0711</span>
+                    <p className="text-sm text-stone-500 mt-1">每日更新，與您分享茶葉生活</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-pink-400 to-purple-500 rounded-2xl blur opacity-25"></div>
+              <div className="relative bg-white p-6 rounded-xl shadow-lg border border-stone-100">
+                <div className="w-48 h-48 rounded-lg overflow-hidden border border-stone-200 bg-gradient-to-br from-pink-50 to-purple-50 flex items-center justify-center">
+                  <div className="text-center p-4">
+                    <div className="text-5xl mb-2">📱</div>
+                    <p className="text-sm font-medium text-stone-700">Instagram</p>
+                    <p className="text-xs text-stone-500 mt-1">掃描追蹤我們</p>
+                    <div className="mt-3 inline-block px-3 py-1 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full text-xs font-medium">
+                      @herbaltea_liu0711
+                    </div>
+                  </div>
+                </div>
+                <p className="mt-3 text-xs font-bold text-pink-700">掃描 QR Code 追蹤</p>
+              </div>
             </div>
           </div>
         </div>
