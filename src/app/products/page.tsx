@@ -1,4 +1,4 @@
-import ProductShowcase from '@/components/ProductShowcase';
+import ProductShowcase from './../../components/ProductShowcase';
 
 export const metadata = {
   title: '產品展示 - 劉媽媽の草本茶',

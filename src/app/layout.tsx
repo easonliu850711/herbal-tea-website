@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: '劉媽媽的草本茶 - 三十年市場經驗的溫暖傳承',
@@ -26,12 +24,13 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
-      <body className="min-h-screen bg-gradient-to-b from-primary-50 to-white font-sans">
-        <Navbar />
-        <main className="pt-16">
-          {children}
-        </main>
-        <Footer />
+      <body style={{
+        margin: 0,
+        padding: 0,
+        fontFamily: "Inter, 'Noto Sans TC', system-ui, sans-serif",
+        minHeight: '100vh'
+      }}>
+        {children}
       </body>
     </html>
   )

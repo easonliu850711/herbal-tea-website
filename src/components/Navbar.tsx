@@ -1,87 +1,20 @@
-'use client'
-
-import { useState } from 'react'
-import { Menu, X, ShoppingBag, Heart, Leaf } from 'lucide-react'
-import Link from 'next/link'
-
-const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-  const navItems = [
-    { name: '首頁', href: '/' },
-    { name: '所有產品', href: '/products' },
-    { name: '品牌故事', href: '/story' },
-    { name: '草本小撇步', href: '/tips' },
-    { name: '訂購方式', href: '/order' },
-  ]
-
+export default function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-neutral-100 shadow-sm">
-      <div className="container-custom section-padding">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center">
-              <Leaf className="w-6 h-6 text-white" />
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-neutral-900">劉媽媽の草本茶</h1>
-              <p className="text-xs text-neutral-500">從決明子到草本茶，用茶養大兩個小孩的媽媽</p>
-            </div>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-neutral-700 hover:text-primary-500 font-medium transition-colors"
-              >
-                {item.name}
-              </Link>
-            ))}
+    <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm z-50 border-b border-stone-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <div className="flex items-center">
+            <span className="text-xl font-bold text-green-800">劉媽媽の草本茶</span>
           </div>
-
-          {/* Actions */}
-          <div className="flex items-center space-x-4">
-            <button className="p-2 text-neutral-700 hover:text-primary-500 transition-colors">
-              <Heart className="w-5 h-5" />
-            </button>
-            <button className="p-2 text-neutral-700 hover:text-primary-500 transition-colors">
-              <ShoppingBag className="w-5 h-5" />
-            </button>
-            
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden p-2 text-neutral-700"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-baseline space-x-4">
+              <a href="/" className="text-stone-700 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium">首頁</a>
+              <a href="/products" className="text-stone-700 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium">產品</a>
+              <a href="/about" className="text-stone-700 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium">關於</a>
+            </div>
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-neutral-100 pt-4">
-            <div className="flex flex-col space-y-3">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-neutral-700 hover:text-primary-500 font-medium py-2 transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </nav>
-  )
+  );
 }
-
-export default Navbar

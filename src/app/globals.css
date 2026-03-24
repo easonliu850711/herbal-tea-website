@@ -1,94 +1,27 @@
-@import "tailwindcss";
-
-@theme {
-  /* 基礎顏色定義 - 確保編譯器認得這些 class */
-  --color-primary-50: #ecfdf5;
-  --color-primary-400: #34d399;
-  --color-primary-500: #10b981;
-  --color-primary-600: #059669;
-
-  --color-secondary-50: #fefce8;
-  --color-secondary-500: #eab308;
-
-  --color-neutral-900: #171717;
-  --color-neutral-100: #f5f5f5;
-
-  /* 邊框變數對接 */
-  --color-border: #e5e7eb;
+/* 基礎樣式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-white text-neutral-900;
-    font-family: 'Inter', 'Noto Sans TC', system-ui, sans-serif;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-bold tracking-tight;
-  }
-
-  h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl;
-  }
-
-  h2 {
-    @apply text-3xl md:text-4xl;
-  }
-
-  h3 {
-    @apply text-2xl md:text-3xl;
-  }
-
-  h4 {
-    @apply text-xl md:text-2xl;
-  }
-
-  p {
-    @apply text-base md:text-lg leading-relaxed;
-  }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: linear-gradient(to bottom, #fafaf9, #ffffff);
 }
 
-@layer components {
-  .btn-primary {
-    @apply bg-primary-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-primary-600 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg active:scale-95;
-  }
-
-  .btn-secondary {
-    @apply bg-white text-primary-500 border-2 border-primary-500 px-6 py-3 rounded-xl font-semibold hover:bg-primary-50 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg active:scale-95;
-  }
-
-  .card {
-    @apply bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 border border-neutral-100;
-  }
-
-  .section-padding {
-    @apply px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-24;
-  }
-
-  .container-custom {
-    @apply max-w-7xl mx-auto;
-  }
+/* 簡單的容器樣式 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  .gradient-bg {
-    @apply bg-gradient-to-br from-primary-50 via-white to-secondary-50;
-  }
-
-  .text-gradient {
-    @apply bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent;
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
   }
 }
