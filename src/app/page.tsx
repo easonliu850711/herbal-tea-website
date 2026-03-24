@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Leaf, Info, ExternalLink, QrCode } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Home() {
   const products = [
@@ -199,15 +200,14 @@ export default function Home() {
             <div className="absolute -inset-1 bg-gradient-to-r from-green-600 to-lime-400 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
             <div className="relative bg-white p-4 rounded-xl shadow-lg border border-stone-100">
               {/* 實際 QR Code 照片 */}
-              <div className="w-32 h-32 rounded-lg overflow-hidden border border-stone-200">
-                <div className="w-full h-full bg-gradient-to-br from-green-50 to-stone-50 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-3xl mb-1">📱</div>
-                    <p className="text-xs text-stone-600">LINE QR Code</p>
-                    <p className="text-[10px] text-stone-400">實際照片載入中</p>
-                  </div>
-                </div>
-                {/* 實際照片路徑：/images/branding/066a2b88-93eb-41dd-bdc7-8b435bd4e758_original.jpg */}
+              <div className="w-32 h-32 rounded-lg overflow-hidden border border-stone-200 relative">
+                <Image
+                  src="/images/ＱＲcode.jpg"
+                  alt="劉媽媽の草本茶 LINE 官方帳號 QR Code"
+                  fill
+                  className="object-contain p-2"
+                  sizes="128px"
+                />
               </div>
               <p className="mt-2 text-[10px] font-bold text-green-700">官方 LINE 掃描區</p>
             </div>

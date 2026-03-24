@@ -2,9 +2,24 @@
 
 import React, { useState } from 'react';
 import { Leaf, Info, ExternalLink, QrCode } from 'lucide-react';
+import Image from 'next/image';
 
 const ProductShowcase = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
+
+  // 產品圖片映射
+  const productImages = {
+    "七葉膽茶": "/images/products/product_photos_original.jpg",
+    "一條根茶": "/images/products/product_photos_2_original.jpg",
+    "洛神花茶": "/images/products/39dcb128-8275-421f-b01f-f58b75f14e69_original.jpg",
+    "雞角刺茶": "/images/products/57a2b52b-4ec7-4188-8ad0-97285ac922c4_original.jpg",
+    "魚腥草茶": "/images/products/59397b16-a65a-4c7d-a8d7-d317e2e109e4_original.jpg",
+    "金線蓮茶": "/images/products/product_photos_original.jpg", // 暫時使用相同圖片
+    "辣木茶": "/images/products/product_photos_2_original.jpg", // 暫時使用相同圖片
+    "枸杞菊花茶": "/images/products/39dcb128-8275-421f-b01f-f58b75f14e69_original.jpg", // 暫時使用相同圖片
+    "桑葉苦瓜茶": "/images/products/57a2b52b-4ec7-4188-8ad0-97285ac922c4_original.jpg", // 暫時使用相同圖片
+    "桑葉茶": "/images/products/59397b16-a65a-4c7d-a8d7-d317e2e109e4_original.jpg" // 暫時使用相同圖片
+  };
 
   const products = [
     {
@@ -102,20 +117,25 @@ const ProductShowcase = () => {
             key={index}
             className={`group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border-l-8 ${product.color} flex flex-col sm:flex-row`}
           >
-            {/* Image Placeholder - Typically you would use actual images here */}
-            <div className="w-full sm:w-48 bg-stone-100 flex items-center justify-center p-6 relative overflow-hidden">
-               <div className="absolute inset-0 opacity-10 flex items-center justify-center">
-                  <Leaf className="w-32 h-32" />
-               </div>
-               <div className="relative text-center">
-                  <div className="bg-white/80 backdrop-blur-sm rounded-lg p-3 shadow-sm border border-stone-200">
-                    <p className="text-[10px] text-stone-400 mb-1">PACKAGING</p>
-                    <p className="text-xs font-bold text-stone-700">{product.name}</p>
-                    <div className="mt-2 text-[9px] bg-green-100 text-green-800 px-2 py-0.5 rounded-full inline-block">
-                      20包入
-                    </div>
+            {/* 產品圖片 - 使用實際照片 */}
+            <div className="w-full sm:w-48 bg-stone-100 relative overflow-hidden">
+              <div className="absolute inset-0">
+                <Image
+                  src={productImages[product.name as keyof typeof productImages] || "/images/products/product_photos_original.jpg"}
+                  alt={`${product.name} - ${product.subtitle}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, 192px"
+                />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
+                <div className="text-center">
+                  <p className="text-xs font-bold text-white">{product.name}</p>
+                  <div className="mt-1 text-[10px] bg-green-600/80 text-white px-2 py-0.5 rounded-full inline-block">
+                    20包入
                   </div>
-               </div>
+                </div>
+              </div>
             </div>
 
             {/* Content Details */}

@@ -221,37 +221,20 @@ export default function StoryPage() {
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-amber-200 to-yellow-200 rounded-2xl blur opacity-30"></div>
               <div className="relative bg-gradient-to-br from-white to-stone-50 rounded-xl p-8 border border-stone-200 shadow-inner">
-                {/* 名片展示 */}
-                <div className="aspect-[1050/600] max-w-md mx-auto rounded-lg overflow-hidden border-2 border-stone-300 bg-gradient-to-br from-green-50 to-amber-50">
-                  <div className="w-full h-full flex flex-col items-center justify-center p-6">
-                    <div className="text-center">
-                      <div className="text-4xl mb-4">📇</div>
-                      <h4 className="text-xl font-bold text-stone-900 mb-2">劉媽媽の草本茶</h4>
-                      <p className="text-stone-600 text-sm mb-4">三十年市場經驗的溫暖傳承</p>
-                      <div className="space-y-2 text-left">
-                        <div className="flex items-center gap-2">
-                          <span className="text-stone-500">📞</span>
-                          <span className="text-stone-700">電話：0956-111-636</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-stone-500">📱</span>
-                          <span className="text-stone-700">LINE：@910jrwoy</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-stone-500">✉️</span>
-                          <span className="text-stone-700">郵箱：imori850711@gmail.com</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-stone-500">📍</span>
-                          <span className="text-stone-700">大台北地區及宅配服務 (詳情請洽官方LINE)</span>
-                        </div>
-                      </div>
-                    </div>
+                {/* 名片展示 - 實際圖片 */}
+                <div className="aspect-[1050/600] max-w-md mx-auto rounded-lg overflow-hidden border-2 border-stone-300">
+                  <div className="w-full h-full relative">
+                    <Image
+                      src="/images/branding/066a2b88-93eb-41dd-bdc7-8b435bd4e758_original.jpg"
+                      alt="劉媽媽の草本茶名片"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
                   </div>
                 </div>
                 <p className="text-center text-sm text-stone-500 mt-4">
-                  {/* 實際名片照片路徑：/images/branding/066a2b88-93eb-41dd-bdc7-8b435bd4e758_original.jpg */}
-                  實際名片設計載入中
+                  三十年市場經驗的專業名片設計
                 </p>
               </div>
             </div>
@@ -267,22 +250,20 @@ export default function StoryPage() {
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-green-200 to-emerald-200 rounded-2xl blur opacity-30"></div>
               <div className="relative bg-gradient-to-br from-white to-stone-50 rounded-xl p-8 border border-stone-200 shadow-inner">
-                {/* QR Code 展示 */}
+                {/* QR Code 展示 - 實際圖片 */}
                 <div className="aspect-square max-w-xs mx-auto rounded-lg overflow-hidden border-2 border-stone-300 bg-white">
-                  <div className="w-full h-full flex items-center justify-center">
-                    <div className="text-center p-6">
-                      <div className="text-6xl mb-4">📱</div>
-                      <p className="text-lg font-bold text-stone-900">LINE QR Code</p>
-                      <p className="text-stone-600 text-sm mt-2">掃描加入官方帳號</p>
-                      <div className="mt-4 inline-block px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
-                        @910jrwoy
-                      </div>
-                    </div>
+                  <div className="w-full h-full relative">
+                    <Image
+                      src="/images/ＱＲcode.jpg"
+                      alt="劉媽媽の草本茶 LINE 官方帳號 QR Code"
+                      fill
+                      className="object-contain p-4"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
                   </div>
                 </div>
                 <p className="text-center text-sm text-stone-500 mt-4">
-                  {/* 實際 QR Code 照片路徑：/images/branding/ 中的相關檔案 */}
-                  實際 QR Code 設計載入中
+                  掃描 QR Code 加入 LINE 官方帳號 @910jrwoy
                 </p>
               </div>
             </div>
