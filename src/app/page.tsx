@@ -19,6 +19,20 @@ export default function Home() {
     "雞角刺茶": "/images/product-closeup/product-closeup-20260323_234211-009.png"  // 009 (雞腳刺茶)
   };
 
+  // 產品成分展示圖片映射 - 你可以根據編號替換這些圖片
+  const ingredientImages = {
+    "一條根茶": "/images/product-closeup/product-closeup-20260323_234211-000.png", // 000 - 成分展示圖
+    "七葉膽茶": "/images/product-closeup/product-closeup-20260323_234211-001.png", // 001 - 成分展示圖
+    "桑葉苦瓜茶": "/images/product-closeup/product-closeup-20260323_234211-002.png", // 002 - 成分展示圖
+    "枸杞菊花茶": "/images/product-closeup/product-closeup-20260323_234211-003.png", // 003 - 成分展示圖
+    "桑葉茶": "/images/product-closeup/product-closeup-20260323_234211-004.png", // 004 - 成分展示圖
+    "洛神花茶": "/images/product-closeup/product-closeup-20260323_234211-005.png", // 005 - 成分展示圖
+    "辣木茶": "/images/product-closeup/product-closeup-20260323_234211-006.png", // 006 - 成分展示圖
+    "金線蓮茶": "/images/product-closeup/product-closeup-20260323_234211-007.png", // 007 - 成分展示圖
+    "魚腥草茶": "/images/product-closeup/product-closeup-20260323_234211-008.png", // 008 - 成分展示圖
+    "雞角刺茶": "/images/product-closeup/product-closeup-20260323_234211-009.png"  // 009 - 成分展示圖
+  };
+
   const products = [
     {
       name: "七葉膽茶",
@@ -277,13 +291,27 @@ export default function Home() {
               </div>
 
               <div className="mt-6">
-                <div className="flex items-center gap-3 text-stone-600 mb-4">
-                  <div className="p-2 bg-gradient-to-br from-stone-100 to-stone-50 rounded-lg">
-                    <Info className="w-5 h-5" />
+                <div className="flex items-center gap-4 text-stone-600 mb-4">
+                  <div className="relative w-16 h-16 rounded-xl overflow-hidden border-2 border-stone-200 shadow-sm">
+                    <Image
+                      src={ingredientImages[product.name as keyof typeof ingredientImages] || "/images/product-closeup/product-closeup-20260323_234211-000.png"}
+                      alt={`${product.name} 成分展示`}
+                      fill
+                      className="object-cover"
+                      sizes="64px"
+                    />
                   </div>
                   <div>
                     <span className="text-sm font-semibold">嚴選天然成分</span>
-                    <p className="text-xs text-stone-500 mt-0.5">無添加化學物質</p>
+                    <p className="text-xs text-stone-500 mt-0.5">無添加化學物質 · 編號 {product.name === "一條根茶" ? "000" : 
+                      product.name === "七葉膽茶" ? "001" :
+                      product.name === "桑葉苦瓜茶" ? "002" :
+                      product.name === "枸杞菊花茶" ? "003" :
+                      product.name === "桑葉茶" ? "004" :
+                      product.name === "洛神花茶" ? "005" :
+                      product.name === "辣木茶" ? "006" :
+                      product.name === "金線蓮茶" ? "007" :
+                      product.name === "魚腥草茶" ? "008" : "009"}</p>
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-3">
