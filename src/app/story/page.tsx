@@ -231,11 +231,11 @@ export default function StoryPage() {
                       <div className="space-y-2 text-left">
                         <div className="flex items-center gap-2">
                           <span className="text-stone-500">📞</span>
-                          <span className="text-stone-700">電話：09XX-XXX-XXX</span>
+                          <span className="text-stone-700">電話：0956-111-636</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <span className="text-stone-500">📱</span>
-                          <span className="text-stone-700">LINE：@liu_mama_tea</span>
+                          <span className="text-stone-700">LINE：@910jrwoy</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <span className="text-stone-500">📍</span>
@@ -271,7 +271,7 @@ export default function StoryPage() {
                       <p className="text-lg font-bold text-stone-900">LINE QR Code</p>
                       <p className="text-stone-600 text-sm mt-2">掃描加入官方帳號</p>
                       <div className="mt-4 inline-block px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
-                        @liu_mama_tea
+                        @910jrwoy
                       </div>
                     </div>
                   </div>

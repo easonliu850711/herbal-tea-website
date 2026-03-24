@@ -161,7 +161,7 @@ export default function Home() {
                <div className="bg-green-100 p-2 rounded-full">
                   <ExternalLink className="w-5 h-5" />
                </div>
-               <span className="font-semibold">LINE: @little_farmer</span>
+               <span className="font-semibold">LINE: @910jrwoy</span>
             </div>
           </div>
           

@@ -225,7 +225,7 @@ export default function OrderPage() {
                     <QrCode className="w-6 h-6" />
                   </div>
                   <div>
-                    <span className="font-semibold">LINE ID: @liu_mama_tea</span>
+                    <span className="font-semibold">LINE ID: @910jrwoy</span>
                     <p className="text-sm text-stone-500 mt-1">或搜尋「劉媽媽の草本茶」</p>
                   </div>
                 </div>
