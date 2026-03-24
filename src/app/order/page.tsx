@@ -82,25 +82,36 @@ export default function OrderPage() {
       name: "7-11 超商取貨",
       time: "2-3 個工作天",
       fee: "$60",
-      icon: "🏪"
+      icon: "🏪",
+      description: "全台7-11門市取貨"
     },
     {
       name: "全家超商取貨",
       time: "2-3 個工作天",
       fee: "$60",
-      icon: "🏪"
+      icon: "🏪",
+      description: "全台全家門市取貨"
     },
     {
-      name: "宅配到府",
+      name: "大台北地區宅配",
       time: "1-2 個工作天",
       fee: "$80-120",
-      icon: "🚚"
+      icon: "🚚",
+      description: "大台北地區專屬宅配服務"
+    },
+    {
+      name: "全台宅配服務",
+      time: "2-3 個工作天",
+      fee: "$100-150",
+      icon: "🚛",
+      description: "全台灣宅配到府"
     },
     {
       name: "郵局包裹",
       time: "3-5 個工作天",
       fee: "$70-100",
-      icon: "📮"
+      icon: "📮",
+      description: "郵局i郵箱或宅配"
     }
   ]
 
@@ -291,12 +302,39 @@ export default function OrderPage() {
                       <div>
                         <h3 className="font-semibold text-stone-900">{option.name}</h3>
                         <p className="text-sm text-stone-600">約 {option.time} 送達</p>
+                        {option.description && (
+                          <p className="text-xs text-stone-500 mt-1">{option.description}</p>
+                        )}
                       </div>
                     </div>
                     <span className="text-lg font-bold text-green-700">{option.fee}</span>
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Special Service Notice */}
+        <div className="mt-12 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-6 border border-blue-100">
+          <div className="flex items-start gap-4">
+            <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+              <span className="text-2xl">📍</span>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-blue-900 mb-2">大台北地區專屬服務</h3>
+              <p className="text-blue-800 mb-3">
+                我們提供大台北地區專屬的宅配服務，讓您享受更快速的送貨體驗。
+              </p>
+              <ul className="text-blue-700 text-sm space-y-1">
+                <li>• <span className="font-semibold">快速配送</span>：1-2個工作天送達</li>
+                <li>• <span className="font-semibold">專人服務</span>：大台北地區專屬配送團隊</li>
+                <li>• <span className="font-semibold">彈性時間</span>：可安排特定時段配送</li>
+                <li>• <span className="font-semibold">即時追蹤</span>：配送進度即時通知</li>
+              </ul>
+              <p className="text-blue-600 text-sm mt-4">
+                💡 <span className="font-semibold">提示</span>：詳細服務範圍和配送時間，請洽官方LINE @910jrwoy 諮詢。
+              </p>
             </div>
           </div>
         </div>

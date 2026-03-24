@@ -239,7 +239,7 @@ export default function StoryPage() {
                         </div>
                         <div className="flex items-center gap-2">
                           <span className="text-stone-500">📍</span>
-                          <span className="text-stone-700">屏東高雄各地市場</span>
+                          <span className="text-stone-700">大台北地區及宅配服務 (詳情請洽官方LINE)</span>
                         </div>
                       </div>
                     </div>
