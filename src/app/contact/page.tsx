@@ -3,7 +3,7 @@
 import React from 'react'
 import { ShoppingBag, Truck, Store, QrCode, CreditCard, Package, Shield, Clock, Instagram } from 'lucide-react'
 import Link from 'next/link'
-import Image from 'next/image'
+
 
 export default function OrderPage() {
   const orderMethods = [
@@ -281,7 +281,7 @@ export default function OrderPage() {
                 <div className="relative bg-white p-6 rounded-xl shadow-lg border border-stone-100">
                   <div className="w-48 h-48 rounded-lg overflow-hidden border border-stone-200 relative">
                     {/* 實際 QR Code 照片 */}
-                    <Image
+                    <img
                       src="/images/ＱＲcode.jpg"
                       alt="劉媽媽の草本茶 LINE 官方帳號 QR Code"
                       fill
