@@ -9,8 +9,10 @@ export default function Navbar() {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               <a href="/" className="text-stone-700 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium">首頁</a>
-              <a href="/products" className="text-stone-700 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium">產品</a>
-              <a href="/about" className="text-stone-700 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium">關於</a>
+              <a href="/story" className="text-stone-700 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium">產品故事</a>
+              <a href="/products" className="text-stone-700 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium">主要產品</a>
+              <a href="/tips" className="text-stone-700 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium">草本小撇步</a>
+              <a href="/contact" className="text-stone-700 hover:text-green-600 px-3 py-2 rounded-md text-sm font-medium">聯絡</a>
             </div>
           </div>
         </div>

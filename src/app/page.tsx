@@ -1,200 +1,158 @@
 'use client'
 
 import React from 'react';
-import { Leaf, ExternalLink, Phone, Mail } from 'lucide-react';
-import Image from 'next/image';
+import { Leaf, BookOpen, Package, Lightbulb, Phone } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Home() {
-  const products = [
+  const features = [
     {
-      name: "七葉膽茶",
-      subtitle: "強身茶",
-      tag: "滋補強身",
-      color: "bg-green-100 border-green-200 text-green-800"
+      title: "產品故事",
+      description: "三十年傳統市場經驗，從一杯決明子茶開始的溫暖傳承",
+      icon: <BookOpen className="w-12 h-12" />,
+      link: "/story",
+      color: "from-green-500 to-emerald-600"
     },
     {
-      name: "一條根茶",
-      subtitle: "舒活茶",
-      tag: "舒緩放鬆",
-      color: "bg-orange-100 border-orange-200 text-orange-800"
+      title: "主要產品",
+      description: "十款精選草本茶，每款都是市場經驗的智慧結晶",
+      icon: <Package className="w-12 h-12" />,
+      link: "/products",
+      color: "from-orange-500 to-amber-600"
     },
     {
-      name: "洛神花茶",
-      subtitle: "纖體美顏茶",
-      tag: "養顏美容",
-      color: "bg-pink-100 border-pink-200 text-pink-800"
+      title: "草本小撇步",
+      description: "養生知識、茶飲搭配、季節養生提醒",
+      icon: <Lightbulb className="w-12 h-12" />,
+      link: "/tips",
+      color: "from-blue-500 to-cyan-600"
     },
     {
-      name: "雞角刺茶",
-      subtitle: "好眠防禦茶",
-      tag: "安定助眠",
-      color: "bg-purple-100 border-purple-200 text-purple-800"
-    },
-    {
-      name: "魚腥草茶",
-      subtitle: "防護茶",
-      tag: "健康防護",
-      color: "bg-blue-100 border-blue-200 text-blue-800"
-    },
-    {
-      name: "金線蓮茶",
-      subtitle: "美人茶",
-      tag: "煥發神采",
-      color: "bg-yellow-100 border-yellow-200 text-yellow-800"
-    },
-    {
-      name: "辣木茶",
-      subtitle: "女王茶",
-      tag: "元氣補給",
-      color: "bg-red-100 border-red-200 text-red-800"
-    },
-    {
-      name: "枸杞菊花茶",
-      subtitle: "清熱明目茶",
-      tag: "晶亮舒適",
-      color: "bg-amber-100 border-amber-200 text-amber-800"
-    },
-    {
-      name: "桑葉苦瓜茶",
-      subtitle: "三降茶",
-      tag: "代謝穩定",
-      color: "bg-lime-100 border-lime-200 text-lime-800"
-    },
-    {
-      name: "桑葉茶",
-      subtitle: "油糖雙切茶",
-      tag: "餐後解膩",
-      color: "bg-emerald-100 border-emerald-200 text-emerald-800"
+      title: "聯絡我們",
+      description: "LINE官方帳號、服務專線、實體攤位資訊",
+      icon: <Phone className="w-12 h-12" />,
+      link: "/contact",
+      color: "from-purple-500 to-pink-600"
     }
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white pt-16">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-green-900/90 via-emerald-800/80 to-stone-900/90 text-white py-20 md:py-32 overflow-hidden">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{
-            backgroundImage: "url('/images/booth/booth-20260323_234211-000.jpg')"
-          }}
-        ></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-green-900/70 via-emerald-800/60 to-stone-900/70"></div>
+      <div className="relative bg-gradient-to-br from-green-900 via-emerald-800 to-stone-900 text-white py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-10 left-10 w-64 h-64 bg-green-500 rounded-full mix-blend-multiply filter blur-xl"></div>
           <div className="absolute top-40 right-10 w-48 h-48 bg-emerald-500 rounded-full mix-blend-multiply filter blur-xl"></div>
         </div>
         
         <div className="relative max-w-6xl mx-auto px-4 md:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-green-500 to-emerald-600 rounded-3xl shadow-2xl mb-8">
+            <Leaf className="w-14 h-14 text-white" />
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl font-bold mb-6">
             劉媽媽の草本茶
           </h1>
-          <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto mb-10">
+          <p className="text-2xl md:text-3xl opacity-90 max-w-3xl mx-auto mb-10">
             「以前我媽只賣這個決明子茶，就是靠這個把我們養大的。」
           </p>
-          <p className="text-lg opacity-80">
-            三十年傳統市場經驗
+          <p className="text-xl opacity-80">
+            三十年傳統市場經驗 · 溫暖傳承
           </p>
         </div>
       </div>
 
-      {/* Products Section */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">
-            精選十款草本茶
+      {/* Features Grid */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mb-4">
+            探索劉媽媽的草本世界
           </h2>
-          <p className="text-stone-600 text-lg max-w-3xl mx-auto">
-            三十年市場經驗的智慧結晶，每款茶都針對現代人的需求精心調配
+          <p className="text-xl text-stone-600 max-w-3xl mx-auto">
+            從產品故事到養生知識，完整了解三十年市場經驗的智慧結晶
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
-            <div 
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map((feature, index) => (
+            <Link 
               key={index}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 border border-stone-200"
+              href={feature.link}
+              className="group block"
             >
-              <div className="relative h-48 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-green-400/20 to-emerald-600/20"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Leaf className="w-24 h-24 text-white/30" />
-                </div>
-                <div className="absolute bottom-4 right-4">
-                  <span className="px-3 py-1 rounded-full text-sm font-medium bg-white/90 backdrop-blur-sm">
-                    {product.tag}
-                  </span>
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-2xl font-bold text-stone-900">{product.name}</h3>
-                    <p className="text-lg text-stone-600">{product.subtitle}</p>
+              <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 h-full">
+                <div className={`h-3 bg-gradient-to-r ${feature.color}`}></div>
+                
+                <div className="p-8">
+                  <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${feature.color} mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    <div className="text-white">
+                      {feature.icon}
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-stone-900 mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-stone-600 leading-relaxed">
+                    {feature.description}
+                  </p>
+                  
+                  <div className="mt-6 flex items-center text-green-600 font-medium">
+                    <span>探索更多</span>
+                    <span className="ml-2 group-hover:translate-x-2 transition-transform duration-300">→</span>
                   </div>
                 </div>
-              
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-6">
-                  <span className="text-stone-700">市場熱銷 · 20包入</span>
-                  <button className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
-                    了解更多 →
-                  </button>
-                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
 
-      {/* Contact Section */}
+      {/* Quick Contact */}
       <div className="bg-gradient-to-br from-green-50 to-emerald-50 py-16">
         <div className="max-w-4xl mx-auto px-4 md:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-8">
-            開始您的草本之旅
+            立即開始您的草本之旅
           </h2>
           <p className="text-stone-600 text-lg mb-12 max-w-2xl mx-auto">
             掃描 QR Code 加入官方 LINE，獲取三十年市場經驗的健康建議與專屬優惠
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-2xl shadow-lg">
-              <div className="text-green-600 mb-4">
-                <Phone className="w-12 h-12 mx-auto" />
+          <div className="inline-flex flex-col md:flex-row items-center gap-8 bg-white p-8 rounded-3xl shadow-lg">
+            <div className="w-48 h-48 bg-gradient-to-br from-green-100 to-emerald-100 rounded-2xl flex items-center justify-center">
+              <div className="text-center">
+                <div className="text-5xl mb-2">📱</div>
+                <div className="text-green-600 font-bold">掃描加入</div>
               </div>
-              <h3 className="text-xl font-bold mb-2">服務專線</h3>
-              <p className="text-stone-700 text-lg">0956-111-636</p>
             </div>
             
-            <div className="bg-white p-6 rounded-2xl shadow-lg">
-              <div className="text-green-600 mb-4">
-                <Mail className="w-12 h-12 mx-auto" />
+            <div className="text-left">
+              <h3 className="text-2xl font-bold text-stone-900 mb-4">LINE 官方帳號</h3>
+              <p className="text-3xl font-bold text-green-700 mb-2">@910jrwoy</p>
+              <p className="text-stone-600 mb-6">獲取專屬優惠與養生知識</p>
+              
+              <div className="space-y-3">
+                <div className="flex items-center">
+                  <Phone className="w-5 h-5 text-green-600 mr-3" />
+                  <span className="text-stone-700">服務專線：0956-111-636</span>
+                </div>
               </div>
-              <h3 className="text-xl font-bold mb-2">LINE 官方帳號</h3>
-              <p className="text-stone-700 text-lg">@910jrwoy</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-2xl shadow-lg">
-              <div className="text-green-600 mb-4">
-                <ExternalLink className="w-12 h-12 mx-auto" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">掃碼加入 LINE</h3>
-              <p className="text-stone-700">獲取專屬優惠與養生知識</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Footer */}
-      <footer className="bg-stone-900 text-white py-8">
-        <div className="max-w-6xl mx-auto px-4 md:px-8 text-center">
-          <p className="text-stone-300">
-            © 2026 劉媽媽の草本茶 · 從決明子到草本茶，用茶養大兩個小孩的媽媽
-          </p>
-          <p className="text-stone-400 mt-2">
-            三十年市場經驗的溫暖傳承 · 每一杯茶都是對媽媽養育之恩的回報
-          </p>
+      <footer className="bg-stone-900 text-white py-12">
+        <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <div className="text-center">
+            <p className="text-stone-300 text-lg">
+              © 2026 劉媽媽の草本茶 · 從決明子到草本茶，用茶養大兩個小孩的媽媽
+            </p>
+            <p className="text-stone-400 mt-2">
+              三十年市場經驗的溫暖傳承 · 每一杯茶都是對媽媽養育之恩的回報
+            </p>
+          </div>
         </div>
       </footer>
     </div>
