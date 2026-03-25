@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import Navbar from '@/components/Navbar'
 
 export const metadata: Metadata = {
   title: '劉媽媽的草本茶 - 三十年市場經驗的溫暖傳承',
@@ -30,7 +31,10 @@ export default function RootLayout({
         fontFamily: "Inter, 'Noto Sans TC', system-ui, sans-serif",
         minHeight: '100vh'
       }}>
-        {children}
+        <Navbar />
+        <main style={{ paddingTop: '4rem' }}>
+          {children}
+        </main>
       </body>
     </html>
   )
