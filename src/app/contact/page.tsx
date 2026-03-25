@@ -279,14 +279,13 @@ export default function OrderPage() {
               <div className="relative">
                 <div className="absolute -inset-1 bg-gradient-to-r from-green-600 to-lime-400 rounded-2xl blur opacity-25"></div>
                 <div className="relative bg-white p-6 rounded-xl shadow-lg border border-stone-100">
-                  <div className="w-48 h-48 rounded-lg overflow-hidden border border-stone-200 relative">
+                  <div className="qr-code-container">
                     {/* 實際 QR Code 照片 */}
+                    {/* @ts-ignore */}
                     <img
                       src="/images/ＱＲcode.jpg"
                       alt="劉媽媽の草本茶 LINE 官方帳號 QR Code"
-                      fill
-                      className="object-contain p-4"
-                      sizes="192px"
+                      className="qr-code-image"
                     />
                   </div>
                   <p className="mt-3 text-xs font-bold text-green-700">官方 LINE 掃描區</p>
@@ -421,6 +420,32 @@ export default function OrderPage() {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .qr-code-container {
+          width: 12rem;
+          height: 12rem;
+          border-radius: 0.5rem;
+          overflow: hidden;
+          border: 1px solid #e5e7eb;
+          position: relative;
+          background: white;
+        }
+        
+        .qr-code-image {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          padding: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+          .qr-code-container {
+            width: 10rem;
+            height: 10rem;
+          }
+        }
+      `}</style>
     </div>
   )
 }
