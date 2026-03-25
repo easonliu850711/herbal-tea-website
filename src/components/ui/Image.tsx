@@ -94,7 +94,7 @@ export const Image: React.FC<ImageProps> = ({
         width={shouldUseFill ? undefined : width}
         height={shouldUseFill ? undefined : height}
         className={imageClasses}
-        loading={loading}
+        loading={priority ? undefined : loading} // priority=true時不傳遞loading
         priority={priority}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         quality={85}
