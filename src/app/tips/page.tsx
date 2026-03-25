@@ -1,263 +1,442 @@
-'use client'
-
-import React from 'react';
-import { Leaf, Info, Thermometer, Droplets, Heart, Brain, Shield, Moon, Sun, Zap } from 'lucide-react';
+import { Navbar, Section, SectionHeader, SectionContent, Card, CardHeader, CardContent, CardFooter, Heading, Text, Button } from '@/components/ui';
+import { Leaf, Heart, BookOpen, Clock, Thermometer, Droplets, Moon, Sun, Coffee, Zap, Brain, Heart as HeartIcon, Eye, Shield, TrendingUp } from 'lucide-react';
+import Link from 'next/link';
 
 export default function TipsPage() {
-  const tips = [
+  // 草本知識
+  const herbKnowledge = [
     {
-      title: "七葉膽",
-      subtitle: "滋補強身",
-      icon: <Heart className="w-6 h-6" />,
-      color: "bg-red-50 border-red-200",
-      iconColor: "text-red-600",
-      description: "傳統滋補草本，有助於增強體力、恢復精神。",
-      benefits: ["增強體力", "恢復精神", "滋補強身"],
-      usage: "適合工作疲勞、體力消耗大時飲用",
-      bestTime: "下午或傍晚"
-    },
-    {
-      title: "一條根",
-      subtitle: "舒緩放鬆",
-      icon: <Thermometer className="w-6 h-6" />,
-      color: "bg-orange-50 border-orange-200",
-      iconColor: "text-orange-600",
-      description: "舒緩肌肉緊繃，幫助身體放鬆。",
-      benefits: ["舒緩肌肉", "放鬆身心", "緩解緊繃"],
-      usage: "運動後或長時間工作後飲用",
-      bestTime: "運動後或睡前"
-    },
-    {
-      title: "洛神花",
-      subtitle: "養顏美容",
-      icon: <Droplets className="w-6 h-6" />,
-      color: "bg-pink-50 border-pink-200",
-      iconColor: "text-pink-600",
-      description: "富含花青素，幫助維持肌膚健康。",
-      benefits: ["養顏美容", "維持肌膚", "抗氧化"],
-      usage: "日常保養、追求美麗時飲用",
-      bestTime: "早晨或下午"
-    },
-    {
-      title: "雞角刺",
-      subtitle: "安定助眠",
-      icon: <Moon className="w-6 h-6" />,
-      color: "bg-purple-50 border-purple-200",
-      iconColor: "text-purple-600",
-      description: "幫助安定心神，促進良好睡眠。",
-      benefits: ["安定心神", "促進睡眠", "放鬆神經"],
-      usage: "睡前飲用幫助放鬆",
-      bestTime: "睡前1小時"
-    },
-    {
-      title: "魚腥草",
-      subtitle: "健康防護",
-      icon: <Shield className="w-6 h-6" />,
-      color: "bg-teal-50 border-teal-200",
-      iconColor: "text-teal-600",
-      description: "傳統保健草本，幫助維持身體防護力。",
-      benefits: ["健康防護", "維持防護", "保健草本"],
-      usage: "季節轉換或需要增強防護時",
-      bestTime: "早晨或需要時"
-    },
-    {
-      title: "金線蓮",
-      subtitle: "煥發神采",
-      icon: <Sun className="w-6 h-6" />,
-      color: "bg-yellow-50 border-yellow-200",
-      iconColor: "text-yellow-600",
-      description: "幫助提神醒腦，恢復精神活力。",
-      benefits: ["提神醒腦", "恢復活力", "煥發神采"],
-      usage: "需要集中注意力時飲用",
-      bestTime: "早晨或工作時"
-    },
-    {
-      title: "辣木",
-      subtitle: "元氣補給",
+      title: '七葉膽',
+      subtitle: '強身滋補之王',
+      description: '溫和滋補，適合日常保健。早上飲用效果最佳。',
       icon: <Zap className="w-6 h-6" />,
-      color: "bg-red-50 border-red-200",
-      iconColor: "text-red-600",
-      description: "營養豐富，提供身體所需能量。",
-      benefits: ["元氣補給", "提供能量", "營養豐富"],
-      usage: "體力消耗大或需要補充能量時",
-      bestTime: "早晨或運動前"
+      benefits: ['增強體力', '促進代謝', '溫和滋補'],
+      brewing: '熱水沖泡5-8分鐘',
+      bestTime: '早上',
+      temperature: '90-95°C',
     },
     {
-      title: "枸杞菊花",
-      subtitle: "晶亮舒適",
-      icon: <Brain className="w-6 h-6" />,
-      color: "bg-cyan-50 border-cyan-200",
-      iconColor: "text-cyan-600",
-      description: "幫助眼睛舒適，維持晶亮感受。",
-      benefits: ["眼睛舒適", "維持晶亮", "清熱明目"],
-      usage: "長時間用眼後飲用",
-      bestTime: "下午或傍晚"
+      title: '洛神花',
+      subtitle: '美容養顏聖品',
+      description: '豐富維生素C，酸甜可口。冷泡熱泡皆宜。',
+      icon: <HeartIcon className="w-6 h-6" />,
+      benefits: ['美容養顏', '幫助消化', '豐富維生素'],
+      brewing: '熱水沖泡3-5分鐘',
+      bestTime: '下午',
+      temperature: '85-90°C',
     },
     {
-      title: "桑葉苦瓜",
-      subtitle: "代謝穩定",
+      title: '枸杞菊花',
+      subtitle: '清熱明目經典',
+      description: '辦公室必備，緩解眼睛疲勞。',
+      icon: <Eye className="w-6 h-6" />,
+      benefits: ['清熱明目', '緩解疲勞', '經典配方'],
+      brewing: '熱水沖泡5分鐘',
+      bestTime: '工作時',
+      temperature: '90-95°C',
+    },
+    {
+      title: '金線蓮',
+      subtitle: '珍貴晶亮茶',
+      description: '溫和滋補，適合需要晶亮保健者。',
+      icon: <Shield className="w-6 h-6" />,
+      benefits: ['晶亮保健', '溫和滋補', '珍貴原料'],
+      brewing: '熱水沖泡10分鐘',
+      bestTime: '全天',
+      temperature: '95-100°C',
+    },
+  ];
+
+  // 沖泡技巧
+  const brewingTips = [
+    {
+      title: '水溫控制',
+      description: '不同草本需要不同水溫。葉類茶85-90°C，根莖類90-95°C，種子類95-100°C。',
       icon: <Thermometer className="w-6 h-6" />,
-      color: "bg-emerald-50 border-emerald-200",
-      iconColor: "text-emerald-600",
-      description: "幫助維持正常代謝機能。",
-      benefits: ["代謝穩定", "維持機能", "平衡調理"],
-      usage: "日常保健、維持平衡時飲用",
-      bestTime: "餐後"
+      details: [
+        '葉類：85-90°C (洛神花、桑葉)',
+        '根莖類：90-95°C (七葉膽、一條根)',
+        '種子類：95-100°C (決明子)',
+      ],
     },
     {
-      title: "桑葉",
-      subtitle: "餐後解膩",
-      icon: <Leaf className="w-6 h-6" />,
-      color: "bg-lime-50 border-lime-200",
-      iconColor: "text-lime-600",
-      description: "幫助消化，餐後飲用感受清爽。",
-      benefits: ["幫助消化", "餐後解膩", "感受清爽"],
-      usage: "餐後飲用幫助消化",
-      bestTime: "餐後30分鐘"
-    }
+      title: '時間掌握',
+      description: '沖泡時間影響風味和功效。太短無味，太久苦澀。',
+      icon: <Clock className="w-6 h-6" />,
+      details: [
+        '輕發酵：3-5分鐘 (洛神花、薄荷)',
+        '中發酵：5-8分鐘 (七葉膽、枸杞)',
+        '重發酵：8-10分鐘 (金線蓮、人參)',
+      ],
+    },
+    {
+      title: '水量比例',
+      description: '一般建議1克茶葉配50毫升水。可依個人口味調整。',
+      icon: <Droplets className="w-6 h-6" />,
+      details: [
+        '濃郁型：1g : 40ml',
+        '標準型：1g : 50ml',
+        '清淡型：1g : 60ml',
+      ],
+    },
+    {
+      title: '重複沖泡',
+      description: '優質草本茶可重複沖泡2-3次，每次風味略有不同。',
+      icon: <Coffee className="w-6 h-6" />,
+      details: [
+        '第一泡：香氣最濃',
+        '第二泡：滋味最醇',
+        '第三泡：餘韻最長',
+      ],
+    },
+  ];
+
+  // 飲用時機
+  const drinkingTiming = [
+    {
+      time: '早晨',
+      description: '提神醒腦，開始美好一天',
+      recommended: ['七葉膽茶', '辣木茶'],
+      icon: <Sun className="w-6 h-6" />,
+      tip: '搭配早餐飲用，效果加倍',
+    },
+    {
+      time: '下午',
+      description: '放鬆心情，補充能量',
+      recommended: ['洛神花茶', '枸杞菊花茶'],
+      icon: <Clock className="w-6 h-6" />,
+      tip: '下午3-5點飲用，幫助消化',
+    },
+    {
+      time: '晚上',
+      description: '放鬆身心，幫助睡眠',
+      recommended: ['桑葉茶', '一條根茶'],
+      icon: <Moon className="w-6 h-6" />,
+      tip: '睡前1小時飲用，避免影響睡眠',
+    },
+    {
+      time: '工作時',
+      description: '集中注意力，緩解疲勞',
+      recommended: ['枸杞菊花茶', '金線蓮茶'],
+      icon: <Brain className="w-6 h-6" />,
+      tip: '每工作1小時，休息5分鐘飲茶',
+    },
+  ];
+
+  // 常見問題
+  const faqs = [
+    {
+      question: '草本茶可以每天喝嗎？',
+      answer: '可以。劉媽媽的草本茶都是純天然原料，無添加任何化學物質，適合日常飲用。建議輪流飲用不同種類，讓身體獲得多元營養。',
+    },
+    {
+      question: '孕婦可以喝草本茶嗎？',
+      answer: '建議諮詢醫生。雖然我們的茶都是天然草本，但孕婦體質特殊，建議在醫生指導下飲用。',
+    },
+    {
+      question: '茶葉可以保存多久？',
+      answer: '未開封可保存12-18個月。開封後建議3-6個月內飲用完畢，並存放在陰涼乾燥處，避免陽光直射。',
+    },
+    {
+      question: '如何選擇適合自己的茶？',
+      answer: '可以透過LINE官方帳號 @910jrwoy 諮詢劉媽媽。她會根據您的體質和需求，推薦最適合的茶。',
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white text-stone-800 font-sans p-4 md:p-8 pt-24">
-      {/* Header Section */}
-      <header className="max-w-6xl mx-auto text-center mb-12">
-        <div className="inline-block p-4 mb-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl shadow-sm border border-green-100">
-          <Leaf className="w-12 h-12 text-green-700 mx-auto mb-3" />
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-green-900 mb-3">
-            草本小撇步
-          </h1>
-          <div className="h-1.5 w-32 bg-gradient-to-r from-green-600 to-emerald-500 mx-auto rounded-full"></div>
-        </div>
-        <p className="text-stone-600 max-w-2xl mx-auto mt-6 text-lg md:text-xl leading-relaxed">
-          了解每種草本原料的特性，選擇最適合自己的茶飲。
-          劉媽媽三十年市場經驗，為您精選最適合的搭配。
-        </p>
-      </header>
+    <>
+      {/* 導航列 */}
+      <Navbar />
 
-      {/* Tips Grid */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {tips.map((tip, index) => (
-          <div 
-            key={index}
-            className={`group rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border ${tip.color} flex flex-col`}
-          >
-            {/* Tip Header */}
-            <div className="p-6">
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <div className={`p-3 rounded-full ${tip.color.replace('bg-', 'bg-').replace(' border', '')}`}>
-                    <div className={tip.iconColor}>
-                      {tip.icon}
+      {/* Hero */}
+      <Section
+        background="gradient"
+        padding="xl"
+        className="text-white"
+      >
+        <div className="max-w-6xl mx-auto text-center">
+          <div className="inline-flex items-center px-4 py-2 bg-white/20 rounded-full text-white font-semibold text-sm mb-6">
+            <BookOpen className="w-4 h-4 mr-2" />
+            三十年市場經驗分享
+          </div>
+          
+          <Heading level={1} className="text-white mb-4">
+            草本小撇步
+          </Heading>
+          
+          <Text variant="lead" className="text-white/90 mb-8 max-w-3xl mx-auto">
+            劉媽媽三十年市場經驗的智慧結晶<br />
+            讓您喝得健康，喝得聰明，喝得開心
+          </Text>
+          
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="#knowledge">
+              <Button
+                variant="primary"
+                size="lg"
+                className="bg-white text-brand-deep hover:bg-white/90"
+              >
+                <Leaf className="w-4 h-4 mr-2" />
+                草本知識
+              </Button>
+            </Link>
+            
+            <Link href="#brewing">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-white text-white hover:bg-white/10"
+              >
+                <Coffee className="w-4 h-4 mr-2" />
+                沖泡技巧
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </Section>
+
+      {/* 草本知識 */}
+      <Section id="knowledge" padding="lg">
+        <SectionHeader
+          title="草本知識"
+          subtitle="了解每一種草本的特性，喝出健康與智慧"
+          align="center"
+        />
+        
+        <SectionContent columns={4} gap="md">
+          {herbKnowledge.map((herb, index) => (
+            <Card key={index} hoverable padding="lg">
+              <div className="flex items-start mb-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-gradient-brand rounded-xl flex items-center justify-center mr-4">
+                  <div className="text-white">
+                    {herb.icon}
+                  </div>
+                </div>
+                <div>
+                  <Heading level={5} className="mb-1">
+                    {herb.title}
+                  </Heading>
+                  <Text variant="small" color="brand" weight="semibold">
+                    {herb.subtitle}
+                  </Text>
+                </div>
+              </div>
+              
+              <Text variant="body" color="muted" className="mb-4">
+                {herb.description}
+              </Text>
+              
+              <div className="space-y-3">
+                <div className="flex items-center text-sm">
+                  <Zap className="w-4 h-4 text-amber-500 mr-2" />
+                  <span className="font-medium">功效：</span>
+                  <span className="ml-2 text-gray-600">{herb.benefits.join(' · ')}</span>
+                </div>
+                
+                <div className="flex items-center text-sm">
+                  <Clock className="w-4 h-4 text-blue-500 mr-2" />
+                  <span className="font-medium">沖泡：</span>
+                  <span className="ml-2 text-gray-600">{herb.brewing}</span>
+                </div>
+                
+                <div className="flex items-center text-sm">
+                  <Sun className="w-4 h-4 text-amber-500 mr-2" />
+                  <span className="font-medium">最佳時機：</span>
+                  <span className="ml-2 text-gray-600">{herb.bestTime}</span>
+                </div>
+                
+                <div className="flex items-center text-sm">
+                  <Thermometer className="w-4 h-4 text-red-500 mr-2" />
+                  <span className="font-medium">建議水溫：</span>
+                  <span className="ml-2 text-gray-600">{herb.temperature}</span>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </SectionContent>
+      </Section>
+
+      {/* 沖泡技巧 */}
+      <Section id="brewing" background="gray" padding="lg">
+        <SectionHeader
+          title="沖泡技巧"
+          subtitle="劉媽媽三十年經驗傳授，泡出完美茶湯"
+          align="center"
+        />
+        
+        <SectionContent columns={4} gap="md">
+          {brewingTips.map((tip, index) => (
+            <Card key={index} hoverable padding="lg" className="text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-brand-emerald to-teal-500 rounded-2xl mb-6 mx-auto">
+                <div className="text-white">
+                  {tip.icon}
+                </div>
+              </div>
+              
+              <Heading level={5} className="mb-3">
+                {tip.title}
+              </Heading>
+              
+              <Text variant="body" color="muted" className="mb-4">
+                {tip.description}
+              </Text>
+              
+              <div className="text-left">
+                {tip.details.map((detail, i) => (
+                  <div key={i} className="flex items-center text-sm text-gray-600 mb-2">
+                    <div className="w-2 h-2 bg-brand-emerald rounded-full mr-2"></div>
+                    {detail}
+                  </div>
+                ))}
+              </div>
+            </Card>
+          ))}
+        </SectionContent>
+      </Section>
+
+      {/* 飲用時機 */}
+      <Section padding="lg">
+        <SectionHeader
+          title="飲用時機"
+          subtitle="對的時間喝對的茶，效果加倍"
+          align="center"
+        />
+        
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {drinkingTiming.map((timing, index) => (
+              <Card key={index} hoverable padding="lg">
+                <div className="flex items-center mb-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-amber-100 to-orange-100 rounded-xl flex items-center justify-center mr-4">
+                    <div className="text-amber-600">
+                      {timing.icon}
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-stone-900">{tip.title}</h3>
-                    <div className="text-sm font-medium text-stone-500 mt-1">{tip.subtitle}</div>
+                    <Heading level={5} className="mb-1">
+                      {timing.time}
+                    </Heading>
+                    <Text variant="small" color="muted">
+                      {timing.description}
+                    </Text>
                   </div>
                 </div>
-              </div>
-
-              {/* Description */}
-              <p className="text-stone-600 mb-4 leading-relaxed">
-                {tip.description}
-              </p>
-
-              {/* Benefits */}
-              <div className="mb-4">
-                <div className="flex items-center gap-2 text-stone-500 mb-2">
-                  <Info className="w-4 h-4" />
-                  <span className="text-sm font-semibold">主要益處</span>
+                
+                <div className="mb-4">
+                  <Text variant="small" weight="semibold" className="text-gray-700 mb-2">
+                    推薦茶飲：
+                  </Text>
+                  <div className="flex flex-wrap gap-2">
+                    {timing.recommended.map((tea, i) => (
+                      <span
+                        key={i}
+                        className="px-3 py-1 bg-brand-light/30 text-brand-deep text-xs rounded-full"
+                      >
+                        {tea}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  {tip.benefits.map((benefit, i) => (
-                    <span 
-                      key={i} 
-                      className="text-xs bg-white/80 text-stone-600 px-3 py-1.5 rounded-full border border-stone-200"
-                    >
-                      {benefit}
-                    </span>
-                  ))}
+                
+                <div className="px-3 py-2 bg-gray-50 rounded-lg">
+                  <Text variant="small" className="text-gray-600">
+                    💡 {timing.tip}
+                  </Text>
                 </div>
-              </div>
-
-              {/* Usage Tips */}
-              <div className="space-y-3">
-                <div className="bg-white/50 rounded-lg p-3 border border-stone-100">
-                  <div className="text-xs font-semibold text-stone-500 mb-1">建議使用時機</div>
-                  <div className="text-sm text-stone-700">{tip.usage}</div>
-                </div>
-                <div className="bg-white/50 rounded-lg p-3 border border-stone-100">
-                  <div className="text-xs font-semibold text-stone-500 mb-1">最佳飲用時間</div>
-                  <div className="text-sm text-stone-700">{tip.bestTime}</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Footer */}
-            <div className="mt-auto p-4 bg-white/50 border-t border-stone-100">
-              <div className="text-center">
-                <div className="inline-flex items-center gap-2 text-green-700 text-sm font-medium">
-                  <Leaf className="w-4 h-4" />
-                  <span>劉媽媽精選配方</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Footer Section */}
-      <footer className="max-w-4xl mx-auto mt-20 mb-10 text-center border-t border-stone-200 pt-12">
-        <div className="mb-8">
-          <h4 className="text-xl font-bold text-stone-800 mb-4">草本飲用小提醒</h4>
-          <div className="max-w-2xl mx-auto text-stone-600 text-sm space-y-2">
-            <p>• 每種草本都有其特性，請根據自身狀況選擇適合的茶飲</p>
-            <p>• 建議初次飲用從少量開始，觀察身體反應</p>
-            <p>• 如有特殊健康狀況，請諮詢專業醫師建議</p>
-            <p>• 劉媽媽三十年市場經驗，為您把關每一種原料品質</p>
+              </Card>
+            ))}
           </div>
         </div>
+      </Section>
 
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-          <div className="text-left">
-            <h4 className="text-lg font-bold text-stone-800 mb-3">需要更多建議？</h4>
-            <div className="space-y-2">
-              <div className="flex items-center gap-3 text-green-700">
-                <div className="bg-green-100 p-2 rounded-full">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                  </svg>
-                </div>
-                <span className="font-medium">電話: 0956-111-636</span>
-              </div>
-              <div className="flex items-center gap-3 text-green-700">
-                <div className="bg-green-100 p-2 rounded-full">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                  </svg>
-                </div>
-                <span className="font-medium">郵箱: imori850711@gmail.com</span>
-              </div>
-            </div>
+      {/* 常見問題 */}
+      <Section background="gray" padding="lg">
+        <SectionHeader
+          title="常見問題"
+          subtitle="劉媽媽親自解答，三十年經驗的智慧"
+          align="center"
+        />
+        
+        <div className="max-w-3xl mx-auto">
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <Card key={index} hoverable padding="lg">
+                <CardContent>
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 w-8 h-8 bg-brand-light/30 rounded-full flex items-center justify-center mr-4 mt-1">
+                      <span className="text-brand-deep font-bold">Q</span>
+                    </div>
+                    <div>
+                      <Heading level={5} className="mb-2">
+                        {faq.question}
+                      </Heading>
+                      <Text variant="body" color="muted">
+                        {faq.answer}
+                      </Text>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
           
-          <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-green-600 to-lime-400 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-            <div className="relative bg-white p-4 rounded-xl shadow-lg border border-stone-100">
-              <div className="text-center">
-                <div className="text-2xl mb-2">📱</div>
-                <p className="text-sm font-bold text-green-700">LINE官方帳號</p>
-                <p className="text-xs text-stone-600 mt-1">@910jrwoy</p>
-                <p className="text-[10px] text-stone-400 mt-2">掃描加入獲取專屬建議</p>
-              </div>
-            </div>
+          <div className="text-center mt-8">
+            <Card className="bg-gradient-to-br from-brand-light/30 to-emerald-100/30 border border-brand-light/50">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-center mb-4">
+                  <Heart className="w-6 h-6 text-brand-emerald mr-3" />
+                  <Heading level={5} className="text-brand-deep">
+                    還有其他問題？
+                  </Heading>
+                </div>
+                
+                <Text variant="body" color="muted" className="mb-4">
+                  歡迎透過LINE官方帳號直接詢問劉媽媽<br />
+                  她會根據三十年市場經驗，給您最貼心的建議
+                </Text>
+                
+                <div className="flex flex-wrap justify-center gap-4">
+                  <Link href="/contact">
+                    <Button variant="primary">
+                      聯絡我們
+                    </Button>
+                  </Link>
+                  
+                  <Link href="/products">
+                    <Button variant="outline">
+                      瀏覽產品
+                    </Button>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
-        
-        <p className="text-stone-400 text-[10px] mt-16 tracking-widest uppercase">
-          © 2024 劉媽媽の草本茶 | 從決明子到草本茶，用茶養大兩個小孩的媽媽
-        </p>
+      </Section>
+
+      {/* 頁尾 */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 text-center">
+          <div className="flex items-center justify-center space-x-2 mb-4">
+            <Leaf className="w-6 h-6 text-emerald-400" />
+            <span className="text-xl font-bold">劉媽媽の草本茶</span>
+          </div>
+          
+          <Text variant="body" color="muted" className="text-gray-400 mb-6">
+            三十年市場經驗 · 溫暖傳承<br />
+            不只是賣茶，更是分享健康知識
+          </Text>
+          
+          <div className="space-y-2 text-gray-500">
+            <Text variant="small">
+              茶葉養大的孩子，回饋母親的初心
+            </Text>
+            <Text variant="small">
+              一杯茶，一份愛，劉媽媽的諾貝爾級奉獻
+            </Text>
+          </div>
+        </div>
       </footer>
-    </div>
+    </>
   );
 }
