@@ -71,7 +71,15 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white pt-16">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-green-900 via-emerald-800 to-stone-900 text-white py-20 md:py-32 overflow-hidden">
+      <div className="relative bg-gradient-to-br from-green-900/90 via-emerald-800/80 to-stone-900/90 text-white py-20 md:py-32 overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-30"
+          style={{
+            backgroundImage: "url('/images/booth/booth-20260323_234211-000.jpg')"
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-green-900/70 via-emerald-800/60 to-stone-900/70"></div>
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-10 left-10 w-64 h-64 bg-green-500 rounded-full mix-blend-multiply filter blur-xl"></div>
           <div className="absolute top-40 right-10 w-48 h-48 bg-emerald-500 rounded-full mix-blend-multiply filter blur-xl"></div>
@@ -107,17 +115,25 @@ export default function Home() {
               key={index}
               className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 border border-stone-200"
             >
-              <div className={`p-6 ${product.color} border-b`}>
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-2xl font-bold">{product.name}</h3>
-                    <p className="text-lg opacity-90">{product.subtitle}</p>
-                  </div>
-                  <span className="px-3 py-1 rounded-full text-sm font-medium bg-white/80">
+              <div className="relative h-48 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-green-400/20 to-emerald-600/20"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Leaf className="w-24 h-24 text-white/30" />
+                </div>
+                <div className="absolute bottom-4 right-4">
+                  <span className="px-3 py-1 rounded-full text-sm font-medium bg-white/90 backdrop-blur-sm">
                     {product.tag}
                   </span>
                 </div>
               </div>
+              
+              <div className="p-6">
+                <div className="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 className="text-2xl font-bold text-stone-900">{product.name}</h3>
+                    <p className="text-lg text-stone-600">{product.subtitle}</p>
+                  </div>
+                </div>
               
               <div className="p-6">
                 <div className="flex items-center justify-between mb-6">
