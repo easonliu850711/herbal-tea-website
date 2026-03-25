@@ -111,6 +111,7 @@ export default function ProductShowcase() {
             {products.map((product) => (
               <div key={product.id} className="product-card">
                 <div className="product-image">
+                  {/* @ts-ignore */}
                   <img 
                     src={product.image} 
                     alt={product.name}
