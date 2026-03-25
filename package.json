@@ -9,14 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.27",
     "framer-motion": "^10.16.16",
     "lucide-react": "^0.309.0",
     "next": "14.1.0",
-    "postcss": "^8.5.8",
     "react": "^18",
-    "react-dom": "^18",
-    "tailwindcss": "^4.2.2"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@types/node": "20.19.37",

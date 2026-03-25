@@ -9,152 +9,488 @@ export default function Home() {
     {
       title: "產品故事",
       description: "三十年傳統市場經驗，從一杯決明子茶開始的溫暖傳承",
-      icon: <BookOpen className="w-12 h-12" />,
+      icon: <BookOpen className="icon-large" />,
       link: "/story",
-      color: "from-green-500 to-emerald-600"
+      color: "green"
     },
     {
       title: "主要產品",
       description: "十款精選草本茶，每款都是市場經驗的智慧結晶",
-      icon: <Package className="w-12 h-12" />,
+      icon: <Package className="icon-large" />,
       link: "/products",
-      color: "from-orange-500 to-amber-600"
+      color: "orange"
     },
     {
       title: "草本小撇步",
       description: "養生知識、茶飲搭配、季節養生提醒",
-      icon: <Lightbulb className="w-12 h-12" />,
+      icon: <Lightbulb className="icon-large" />,
       link: "/tips",
-      color: "from-blue-500 to-cyan-600"
+      color: "blue"
     },
     {
       title: "聯絡我們",
       description: "LINE官方帳號、服務專線、實體攤位資訊",
-      icon: <Phone className="w-12 h-12" />,
+      icon: <Phone className="icon-large" />,
       link: "/contact",
-      color: "from-purple-500 to-pink-600"
+      color: "purple"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white pt-16">
+    <div className="page-container">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-green-900 via-emerald-800 to-stone-900 text-white py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-10 left-10 w-64 h-64 bg-green-500 rounded-full mix-blend-multiply filter blur-xl"></div>
-          <div className="absolute top-40 right-10 w-48 h-48 bg-emerald-500 rounded-full mix-blend-multiply filter blur-xl"></div>
-        </div>
-        
-        <div className="relative max-w-6xl mx-auto px-4 md:px-8 text-center">
-          <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-green-500 to-emerald-600 rounded-3xl shadow-2xl mb-8">
-            <Leaf className="w-14 h-14 text-white" />
+      <section className="hero-section">
+        <div className="hero-overlay"></div>
+        <div className="container text-center">
+          <div className="hero-logo">
+            <Leaf className="icon-xlarge" />
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+          <h1 className="hero-title">
             劉媽媽の草本茶
           </h1>
-          <p className="text-2xl md:text-3xl opacity-90 max-w-3xl mx-auto mb-10">
+          <p className="hero-subtitle">
             「以前我媽只賣這個決明子茶，就是靠這個把我們養大的。」
           </p>
-          <p className="text-xl opacity-80">
+          <p className="hero-tagline">
             三十年傳統市場經驗 · 溫暖傳承
           </p>
         </div>
-      </div>
+      </section>
 
       {/* Features Grid */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-20">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mb-4">
-            探索劉媽媽的草本世界
-          </h2>
-          <p className="text-xl text-stone-600 max-w-3xl mx-auto">
-            從產品故事到養生知識，完整了解三十年市場經驗的智慧結晶
-          </p>
-        </div>
+      <section className="section-padding">
+        <div className="container">
+          <div className="text-center mb-4">
+            <h2 className="section-title">
+              探索劉媽媽的草本世界
+            </h2>
+            <p className="section-description">
+              從產品故事到養生知識，完整了解三十年市場經驗的智慧結晶
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature, index) => (
-            <Link 
-              key={index}
-              href={feature.link}
-              className="group block"
-            >
-              <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 h-full">
-                <div className={`h-3 bg-gradient-to-r ${feature.color}`}></div>
-                
-                <div className="p-8">
-                  <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${feature.color} mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                    <div className="text-white">
-                      {feature.icon}
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold text-stone-900 mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="text-stone-600 leading-relaxed">
-                    {feature.description}
-                  </p>
-                  
-                  <div className="mt-6 flex items-center text-green-600 font-medium">
-                    <span>探索更多</span>
-                    <span className="ml-2 group-hover:translate-x-2 transition-transform duration-300">→</span>
-                  </div>
+          <div className="grid grid-4">
+            {features.map((feature, index) => (
+              <Link 
+                key={index}
+                href={feature.link}
+                className="feature-card"
+              >
+                <div className={`feature-icon ${feature.color}`}>
+                  {feature.icon}
                 </div>
-              </div>
-            </Link>
-          ))}
+                
+                <h3 className="feature-title">
+                  {feature.title}
+                </h3>
+                <p className="feature-description">
+                  {feature.description}
+                </p>
+                
+                <div className="feature-link">
+                  <span>探索更多</span>
+                  <span className="arrow">→</span>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* Quick Contact */}
-      <div className="bg-gradient-to-br from-green-50 to-emerald-50 py-16">
-        <div className="max-w-4xl mx-auto px-4 md:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-8">
+      <section className="contact-section">
+        <div className="container text-center">
+          <h2 className="section-title">
             立即開始您的草本之旅
           </h2>
-          <p className="text-stone-600 text-lg mb-12 max-w-2xl mx-auto">
+          <p className="section-description">
             掃描 QR Code 加入官方 LINE，獲取三十年市場經驗的健康建議與專屬優惠
           </p>
           
-          <div className="inline-flex flex-col md:flex-row items-center gap-8 bg-white p-8 rounded-3xl shadow-lg">
-            <div className="w-48 h-48 bg-gradient-to-br from-green-100 to-emerald-100 rounded-2xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="text-5xl mb-2">📱</div>
-                <div className="text-green-600 font-bold">掃描加入</div>
-              </div>
+          <div className="contact-card">
+            <div className="qr-placeholder">
+              <div className="qr-icon">📱</div>
+              <div className="qr-text">掃描加入</div>
             </div>
             
-            <div className="text-left">
-              <h3 className="text-2xl font-bold text-stone-900 mb-4">LINE 官方帳號</h3>
-              <p className="text-3xl font-bold text-green-700 mb-2">@910jrwoy</p>
-              <p className="text-stone-600 mb-6">獲取專屬優惠與養生知識</p>
+            <div className="contact-info">
+              <h3>LINE 官方帳號</h3>
+              <p className="line-id">@910jrwoy</p>
+              <p className="contact-note">獲取專屬優惠與養生知識</p>
               
-              <div className="space-y-3">
-                <div className="flex items-center">
-                  <Phone className="w-5 h-5 text-green-600 mr-3" />
-                  <span className="text-stone-700">服務專線：0956-111-636</span>
+              <div className="contact-details">
+                <div className="contact-item">
+                  <Phone className="icon-small" />
+                  <span>服務專線：0956-111-636</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Footer */}
-      <footer className="bg-stone-900 text-white py-12">
-        <div className="max-w-6xl mx-auto px-4 md:px-8">
-          <div className="text-center">
-            <p className="text-stone-300 text-lg">
-              © 2026 劉媽媽の草本茶 · 從決明子到草本茶，用茶養大兩個小孩的媽媽
-            </p>
-            <p className="text-stone-400 mt-2">
-              三十年市場經驗的溫暖傳承 · 每一杯茶都是對媽媽養育之恩的回報
-            </p>
-          </div>
+      <footer className="footer">
+        <div className="container text-center">
+          <p className="footer-main">
+            © 2026 劉媽媽の草本茶 · 從決明子到草本茶，用茶養大兩個小孩的媽媽
+          </p>
+          <p className="footer-sub">
+            三十年市場經驗的溫暖傳承 · 每一杯茶都是對媽媽養育之恩的回報
+          </p>
         </div>
       </footer>
+
+      <style jsx>{`
+        /* 頁面容器 */
+        .page-container {
+          min-height: 100vh;
+          padding-top: 5rem;
+        }
+        
+        /* Hero區 */
+        .hero-section {
+          position: relative;
+          background: linear-gradient(to bottom right, 
+            var(--green-900), 
+            var(--emerald-800), 
+            var(--stone-900)
+          );
+          color: white;
+          padding: 6rem 0;
+          overflow: hidden;
+        }
+        
+        .hero-overlay {
+          position: absolute;
+          inset: 0;
+          opacity: 0.2;
+        }
+        
+        .hero-overlay::before {
+          content: '';
+          position: absolute;
+          top: 10%;
+          left: 10%;
+          width: 16rem;
+          height: 16rem;
+          background: var(--green-500);
+          border-radius: 50%;
+          mix-blend-mode: multiply;
+          filter: blur(4rem);
+        }
+        
+        .hero-overlay::after {
+          content: '';
+          position: absolute;
+          top: 40%;
+          right: 10%;
+          width: 12rem;
+          height: 12rem;
+          background: var(--emerald-500);
+          border-radius: 50%;
+          mix-blend-mode: multiply;
+          filter: blur(4rem);
+        }
+        
+        .hero-logo {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 6rem;
+          height: 6rem;
+          background: linear-gradient(to bottom right, 
+            var(--green-500), 
+            var(--emerald-600)
+          );
+          border-radius: 1.5rem;
+          margin-bottom: 2rem;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-title {
+          font-size: 3.5rem;
+          font-weight: bold;
+          margin-bottom: 1.5rem;
+        }
+        
+        .hero-subtitle {
+          font-size: 1.75rem;
+          opacity: 0.9;
+          max-width: 48rem;
+          margin: 0 auto 2.5rem;
+        }
+        
+        .hero-tagline {
+          font-size: 1.25rem;
+          opacity: 0.8;
+        }
+        
+        /* 區段通用 */
+        .section-padding {
+          padding: 5rem 0;
+        }
+        
+        .section-title {
+          font-size: 2.5rem;
+          font-weight: bold;
+          color: var(--stone-900);
+          margin-bottom: 1rem;
+        }
+        
+        .section-description {
+          font-size: 1.25rem;
+          color: var(--stone-600);
+          max-width: 48rem;
+          margin: 0 auto;
+        }
+        
+        /* 功能卡片 */
+        .feature-card {
+          background: white;
+          border-radius: 1.5rem;
+          padding: 2rem;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+          transition: all 0.3s;
+          text-decoration: none;
+          display: block;
+        }
+        
+        .feature-card:hover {
+          transform: translateY(-0.5rem);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 5rem;
+          height: 5rem;
+          border-radius: 1rem;
+          margin-bottom: 1.5rem;
+        }
+        
+        .feature-icon.green {
+          background: linear-gradient(to bottom right, 
+            var(--green-500), 
+            var(--emerald-600)
+          );
+        }
+        
+        .feature-icon.orange {
+          background: linear-gradient(to bottom right, 
+            #f97316, 
+            #ea580c
+          );
+        }
+        
+        .feature-icon.blue {
+          background: linear-gradient(to bottom right, 
+            #3b82f6, 
+            #0ea5e9
+          );
+        }
+        
+        .feature-icon.purple {
+          background: linear-gradient(to bottom right, 
+            #8b5cf6, 
+            #d946ef
+          );
+        }
+        
+        .feature-icon :global(svg) {
+          width: 3rem;
+          height: 3rem;
+          color: white;
+        }
+        
+        .feature-title {
+          font-size: 1.5rem;
+          font-weight: bold;
+          color: var(--stone-900);
+          margin-bottom: 0.75rem;
+        }
+        
+        .feature-description {
+          color: var(--stone-600);
+          line-height: 1.6;
+          margin-bottom: 1.5rem;
+        }
+        
+        .feature-link {
+          display: flex;
+          align-items: center;
+          color: var(--green-600);
+          font-weight: 600;
+        }
+        
+        .arrow {
+          margin-left: 0.5rem;
+          transition: transform 0.3s;
+        }
+        
+        .feature-card:hover .arrow {
+          transform: translateX(0.5rem);
+        }
+        
+        /* 聯絡區 */
+        .contact-section {
+          background: linear-gradient(to bottom right, 
+            var(--green-50), 
+            var(--emerald-50)
+          );
+          padding: 5rem 0;
+        }
+        
+        .contact-card {
+          display: inline-flex;
+          flex-direction: column;
+          align-items: center;
+          background: white;
+          padding: 3rem;
+          border-radius: 2rem;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+          max-width: 36rem;
+          margin-top: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+          .contact-card {
+            flex-direction: row;
+            gap: 3rem;
+            max-width: 56rem;
+          }
+        }
+        
+        .qr-placeholder {
+          width: 12rem;
+          height: 12rem;
+          background: linear-gradient(to bottom right, 
+            var(--green-100), 
+            var(--emerald-100)
+          );
+          border-radius: 1rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+          .qr-placeholder {
+            margin-bottom: 0;
+          }
+        }
+        
+        .qr-icon {
+          font-size: 3rem;
+          margin-bottom: 0.5rem;
+        }
+        
+        .qr-text {
+          color: var(--green-600);
+          font-weight: bold;
+        }
+        
+        .contact-info {
+          text-align: left;
+        }
+        
+        .contact-info h3 {
+          font-size: 1.75rem;
+          font-weight: bold;
+          color: var(--stone-900);
+          margin-bottom: 0.5rem;
+        }
+        
+        .line-id {
+          font-size: 2rem;
+          font-weight: bold;
+          color: var(--green-700);
+          margin-bottom: 0.5rem;
+        }
+        
+        .contact-note {
+          color: var(--stone-600);
+          margin-bottom: 1.5rem;
+        }
+        
+        .contact-details {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+        
+        .contact-item {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          color: var(--stone-700);
+        }
+        
+        .contact-item :global(svg) {
+          width: 1.25rem;
+          height: 1.25rem;
+          color: var(--green-600);
+        }
+        
+        /* 頁尾 */
+        .footer {
+          background: var(--stone-900);
+          color: white;
+          padding: 3rem 0;
+        }
+        
+        .footer-main {
+          color: var(--stone-300);
+          font-size: 1.125rem;
+          margin-bottom: 0.5rem;
+        }
+        
+        .footer-sub {
+          color: var(--stone-400);
+        }
+        
+        /* 圖標大小 */
+        .icon-large {
+          width: 3rem;
+          height: 3rem;
+        }
+        
+        .icon-xlarge {
+          width: 3.5rem;
+          height: 3.5rem;
+          color: white;
+        }
+        
+        .icon-small {
+          width: 1.25rem;
+          height: 1.25rem;
+        }
+        
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+          .hero-title {
+            font-size: 2.5rem;
+          }
+          
+          .hero-subtitle {
+            font-size: 1.5rem;
+          }
+          
+          .section-title {
+            font-size: 2rem;
+          }
+          
+          .grid-4 {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+          }
+        }
+      `}</style>
     </div>
   );
 }
