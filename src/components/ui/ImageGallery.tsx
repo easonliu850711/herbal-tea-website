@@ -5,8 +5,8 @@ import { X, ChevronLeft, ChevronRight, Maximize2, Download, Heart } from 'lucide
 import { Image } from './Image';
 import { Button } from './Button';
 
-interface ImageGalleryProps {
-  images: string[];
+export interface ImageGalleryProps {
+  images: readonly string[];
   title?: string;
   description?: string;
   columns?: 1 | 2 | 3 | 4;
@@ -14,9 +14,10 @@ interface ImageGalleryProps {
   showControls?: boolean;
   interactive?: boolean;
   category?: string;
+  className?: string;
 }
 
-const ImageGallery: React.FC<ImageGalleryProps> = ({
+export const ImageGallery: React.FC<ImageGalleryProps> = ({
   images,
   title,
   description,
@@ -25,6 +26,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
   showControls = true,
   interactive = true,
   category,
+  className = '',
 }) => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [likedImages, setLikedImages] = useState<Set<number>>(new Set());
@@ -104,7 +106,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
   }, [selectedIndex]);
 
   return (
-    <div className="w-full">
+    <div className={`w-full ${className}`}>
       {/* 標題區域 */}
       {(title || description) && (
         <div className="mb-8 text-center">
@@ -313,12 +315,12 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
 };
 
 // 專門的產品畫廊
-interface ProductGalleryProps extends Omit<ImageGalleryProps, 'images'> {
+export interface ProductGalleryProps extends Omit<ImageGalleryProps, 'images'> {
   productName?: string;
   showProductInfo?: boolean;
 }
 
-const ProductGallery: React.FC<ProductGalleryProps> = ({
+export const ProductGallery: React.FC<ProductGalleryProps> = ({
   productName,
   showProductInfo = true,
   ...props
@@ -352,5 +354,3 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({
     </div>
   );
 };
-
-export { ImageGallery, ProductGallery };

@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  // 暫時移除 output: 'export' 以解決路徑別名問題
+  // output: 'export',
   images: {
     // 正確配置圖片優化
     formats: ['image/avif', 'image/webp'],

@@ -2,16 +2,16 @@
 
 import React, { useState } from 'react';
 import { X, ExternalLink, Heart, Leaf, Thermometer, Clock, Package } from 'lucide-react';
-import { Card, CardContent, Heading, Text, Button } from '.';
+import { Card, CardContent, Heading, Text, Button } from './index';
 import type { HerbIngredient } from '@/lib/herbs';
 
-interface HerbCardProps {
+export interface HerbCardProps {
   herb: HerbIngredient;
   compact?: boolean;
   onClick?: (herb: HerbIngredient) => void;
 }
 
-const HerbCard: React.FC<HerbCardProps> = ({ herb, compact = false, onClick }) => {
+export const HerbCard: React.FC<HerbCardProps> = ({ herb, compact = false, onClick }) => {
   const [isLiked, setIsLiked] = useState(false);
 
   const colorClasses = {
@@ -148,13 +148,13 @@ const HerbCard: React.FC<HerbCardProps> = ({ herb, compact = false, onClick }) =
   );
 };
 
-interface HerbModalProps {
+export interface HerbModalProps {
   herb: HerbIngredient | null;
   isOpen: boolean;
   onClose: () => void;
 }
 
-const HerbModal: React.FC<HerbModalProps> = ({ herb, isOpen, onClose }) => {
+export const HerbModal: React.FC<HerbModalProps> = ({ herb, isOpen, onClose }) => {
   if (!herb || !isOpen) return null;
 
   const colorClasses = {
@@ -303,5 +303,3 @@ const HerbModal: React.FC<HerbModalProps> = ({ herb, isOpen, onClose }) => {
     </div>
   );
 };
-
-export { HerbCard, HerbModal };

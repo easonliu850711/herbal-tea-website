@@ -1,7 +1,7 @@
 import React from 'react';
 import NextImage, { ImageProps as NextImageProps } from 'next/image';
 
-interface ImageProps extends Omit<NextImageProps, 'src' | 'alt'> {
+export interface ImageProps extends Omit<NextImageProps, 'src' | 'alt'> {
   src: string;
   alt: string;
   ratio?: 'square' | 'video' | 'widescreen' | 'portrait' | 'auto';
@@ -13,7 +13,7 @@ interface ImageProps extends Omit<NextImageProps, 'src' | 'alt'> {
   className?: string;
 }
 
-const Image: React.FC<ImageProps> = ({
+export const Image: React.FC<ImageProps> = ({
   src,
   alt,
   ratio = 'auto',
@@ -110,12 +110,12 @@ const Image: React.FC<ImageProps> = ({
 };
 
 // 產品圖片專用組件
-interface ProductImageProps extends Omit<ImageProps, 'ratio' | 'rounded' | 'shadow'> {
+export interface ProductImageProps extends Omit<ImageProps, 'ratio' | 'rounded' | 'shadow'> {
   badge?: string;
   badgeColor?: 'brand' | 'success' | 'warning' | 'error';
 }
 
-const ProductImage: React.FC<ProductImageProps> = ({
+export const ProductImage: React.FC<ProductImageProps> = ({
   badge,
   badgeColor = 'brand',
   ...props
@@ -153,12 +153,12 @@ const ProductImage: React.FC<ProductImageProps> = ({
 };
 
 // Hero圖片專用組件
-interface HeroImageProps extends Omit<ImageProps, 'ratio' | 'objectFit'> {
+export interface HeroImageProps extends Omit<ImageProps, 'ratio' | 'objectFit'> {
   overlay?: boolean;
   overlayOpacity?: number;
 }
 
-const HeroImage: React.FC<HeroImageProps> = ({
+export const HeroImage: React.FC<HeroImageProps> = ({
   overlay = true,
   overlayOpacity = 0.3,
   ...props
@@ -182,5 +182,3 @@ const HeroImage: React.FC<HeroImageProps> = ({
     </div>
   );
 };
-
-export { Image, ProductImage, HeroImage };

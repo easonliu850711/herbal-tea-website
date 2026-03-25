@@ -5,13 +5,13 @@ import Link from 'next/link';
 import { Menu, X, Leaf, ShoppingBag } from 'lucide-react';
 import { Button } from './Button';
 
-interface NavItem {
+export interface NavItem {
   label: string;
   href: string;
   icon?: React.ReactNode;
 }
 
-interface NavbarProps {
+export interface NavbarProps {
   logo?: React.ReactNode;
   items?: NavItem[];
   cta?: {
@@ -23,7 +23,7 @@ interface NavbarProps {
   transparent?: boolean;
 }
 
-const Navbar: React.FC<NavbarProps> = ({
+export const Navbar: React.FC<NavbarProps> = ({
   logo = (
     <div className="flex items-center space-x-2">
       <Leaf className="w-6 h-6 text-brand-deep" />
@@ -195,5 +195,3 @@ const Navbar: React.FC<NavbarProps> = ({
     </>
   );
 };
-
-export default Navbar;

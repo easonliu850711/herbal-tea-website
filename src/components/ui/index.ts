@@ -1,9 +1,9 @@
 // UI Components
-export { default as Button } from './Button';
+export { Button } from './Button';
 export { Card, CardHeader, CardContent, CardFooter } from './Card';
 export { Heading, Text, Paragraph, Span, Blockquote } from './Typography';
 export { Image, ProductImage, HeroImage } from './Image';
-export { default as Navbar } from './Navbar';
+export { Navbar } from './Navbar';
 export { Section, SectionHeader, SectionContent } from './Section';
 export { ImageGallery, ProductGallery } from './ImageGallery';
 export { Hero, ProductHero, StoryHero } from './Hero';

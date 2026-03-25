@@ -1,23 +1,23 @@
 import React from 'react';
 
-interface TypographyProps {
+export interface TypographyProps {
   children: React.ReactNode;
   className?: string;
   as?: keyof JSX.IntrinsicElements;
 }
 
-interface HeadingProps extends TypographyProps {
+export interface HeadingProps extends TypographyProps {
   level?: 1 | 2 | 3 | 4 | 5 | 6;
 }
 
-interface TextProps extends TypographyProps {
+export interface TextProps extends TypographyProps {
   variant?: 'body' | 'lead' | 'small' | 'caption';
   color?: 'default' | 'muted' | 'brand' | 'success' | 'warning' | 'error';
   weight?: 'normal' | 'medium' | 'semibold' | 'bold';
   align?: 'left' | 'center' | 'right' | 'justify';
 }
 
-const Heading: React.FC<HeadingProps> = ({
+export const Heading: React.FC<HeadingProps> = ({
   children,
   className = '',
   level = 1,
@@ -43,7 +43,7 @@ const Heading: React.FC<HeadingProps> = ({
   );
 };
 
-const Text: React.FC<TextProps> = ({
+export const Text: React.FC<TextProps> = ({
   children,
   className = '',
   variant = 'body',
@@ -99,15 +99,15 @@ const Text: React.FC<TextProps> = ({
   );
 };
 
-const Paragraph: React.FC<TextProps> = (props) => {
+export const Paragraph: React.FC<TextProps> = (props) => {
   return <Text as="p" {...props} />;
 };
 
-const Span: React.FC<TextProps> = (props) => {
+export const Span: React.FC<TextProps> = (props) => {
   return <Text as="span" {...props} />;
 };
 
-const Blockquote: React.FC<TypographyProps> = ({ children, className = '' }) => {
+export const Blockquote: React.FC<TypographyProps> = ({ children, className = '' }) => {
   return (
     <blockquote
       className={`
@@ -121,5 +121,3 @@ const Blockquote: React.FC<TypographyProps> = ({ children, className = '' }) => 
     </blockquote>
   );
 };
-
-export { Heading, Text, Paragraph, Span, Blockquote };

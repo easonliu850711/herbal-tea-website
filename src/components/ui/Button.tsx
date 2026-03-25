@@ -1,20 +1,20 @@
 import React from 'react';
 import { LucideIcon } from 'lucide-react';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
-  icon?: LucideIcon;
+  icon?: React.ReactNode;
   iconPosition?: 'left' | 'right';
   loading?: boolean;
   fullWidth?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<ButtonProps> = ({
   children,
   variant = 'primary',
   size = 'md',
-  icon: Icon,
+  icon,
   iconPosition = 'left',
   loading = false,
   fullWidth = false,
@@ -52,17 +52,19 @@ const Button: React.FC<ButtonProps> = ({
         </div>
       ) : (
         <>
-          {Icon && iconPosition === 'left' && (
-            <Icon className={`w-4 h-4 ${children ? 'mr-2' : ''}`} />
+          {icon && iconPosition === 'left' && (
+            <span className={`inline-flex ${children ? 'mr-2' : ''}`}>
+              {icon}
+            </span>
           )}
           {children}
-          {Icon && iconPosition === 'right' && (
-            <Icon className={`w-4 h-4 ${children ? 'ml-2' : ''}`} />
+          {icon && iconPosition === 'right' && (
+            <span className={`inline-flex ${children ? 'ml-2' : ''}`}>
+              {icon}
+            </span>
           )}
         </>
       )}
     </button>
   );
 };
-
-export default Button;

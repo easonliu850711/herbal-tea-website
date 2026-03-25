@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface SectionProps {
+export interface SectionProps {
   children: React.ReactNode;
   className?: string;
   id?: string;
@@ -11,7 +11,7 @@ interface SectionProps {
   align?: 'left' | 'center' | 'right';
 }
 
-const Section: React.FC<SectionProps> = ({
+export const Section: React.FC<SectionProps> = ({
   children,
   className = '',
   id,
@@ -76,7 +76,7 @@ const Section: React.FC<SectionProps> = ({
   );
 };
 
-interface SectionHeaderProps {
+export interface SectionHeaderProps {
   title?: string;
   subtitle?: string;
   eyebrow?: string;
@@ -85,7 +85,7 @@ interface SectionHeaderProps {
   titleAs?: 'h1' | 'h2' | 'h3' | 'h4';
 }
 
-const SectionHeader: React.FC<SectionHeaderProps> = ({
+export const SectionHeader: React.FC<SectionHeaderProps> = ({
   title,
   subtitle,
   eyebrow,
@@ -124,14 +124,14 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
   );
 };
 
-interface SectionContentProps {
+export interface SectionContentProps {
   children: React.ReactNode;
   className?: string;
   columns?: 1 | 2 | 3 | 4;
   gap?: 'sm' | 'md' | 'lg';
 }
 
-const SectionContent: React.FC<SectionContentProps> = ({
+export const SectionContent: React.FC<SectionContentProps> = ({
   children,
   className = '',
   columns = 1,
@@ -156,5 +156,3 @@ const SectionContent: React.FC<SectionContentProps> = ({
     </div>
   );
 };
-
-export { Section, SectionHeader, SectionContent };

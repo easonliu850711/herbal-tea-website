@@ -6,7 +6,7 @@ import { Button } from './Button';
 import { HeroImage } from './Image';
 import { brandingImages, getRandomStallImage, stallImages } from '@/lib/images';
 
-interface HeroProps {
+export interface HeroProps {
   title?: string;
   subtitle?: string;
   description?: string;
@@ -29,7 +29,7 @@ interface HeroProps {
   align?: 'left' | 'center' | 'right';
 }
 
-const Hero: React.FC<HeroProps> = ({
+export const Hero: React.FC<HeroProps> = ({
   title = '劉媽媽の草本茶',
   subtitle = '「以前我媽只賣這個決明子茶，就是靠這個把我們養大的。」',
   description = '三十年傳統市場經驗的溫暖傳承',
@@ -239,12 +239,12 @@ const Hero: React.FC<HeroProps> = ({
 };
 
 // 專門的產品Hero
-interface ProductHeroProps extends Omit<HeroProps, 'backgroundImage'> {
+export interface ProductHeroProps extends Omit<HeroProps, 'backgroundImage'> {
   productName: string;
   productImage?: string;
 }
 
-const ProductHero: React.FC<ProductHeroProps> = ({
+export const ProductHero: React.FC<ProductHeroProps> = ({
   productName,
   productImage,
   ...props
@@ -275,7 +275,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({
 };
 
 // 專門的故事Hero
-const StoryHero: React.FC<HeroProps> = (props) => {
+export const StoryHero: React.FC<HeroProps> = (props) => {
   return (
     <Hero
       title="劉媽媽的故事"
@@ -294,5 +294,3 @@ const StoryHero: React.FC<HeroProps> = (props) => {
     />
   );
 };
-
-export { Hero, ProductHero, StoryHero };

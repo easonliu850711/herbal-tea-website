@@ -108,7 +108,7 @@ export const herbIngredients: HerbIngredient[] = [
     id: 'chenpi',
     name: 'Dried Tangerine Peel',
     chineseName: '陳皮',
-    category: '果皮',
+    category: '果實',
     description: '陳年柑橘皮，香氣獨特，幫助消化，劉媽媽存放三年的陳皮，香氣醇厚。',
     benefits: ['幫助消化', '獨特香氣', '陳年風味', '去油解膩'],
     usage: '切絲，與油膩食物後飲用最佳',

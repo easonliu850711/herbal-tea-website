@@ -1,16 +1,17 @@
 import React from 'react';
 import { LucideIcon } from 'lucide-react';
 
-interface CardProps {
+export interface CardProps {
   children: React.ReactNode;
   className?: string;
   hoverable?: boolean;
   padding?: 'none' | 'sm' | 'md' | 'lg';
   shadow?: 'none' | 'soft' | 'medium' | 'hard';
   border?: boolean;
+  onClick?: () => void;
 }
 
-interface CardHeaderProps {
+export interface CardHeaderProps {
   children: React.ReactNode;
   className?: string;
   icon?: LucideIcon;
@@ -18,24 +19,25 @@ interface CardHeaderProps {
   subtitle?: string;
 }
 
-interface CardContentProps {
+export interface CardContentProps {
   children: React.ReactNode;
   className?: string;
 }
 
-interface CardFooterProps {
+export interface CardFooterProps {
   children: React.ReactNode;
   className?: string;
   align?: 'left' | 'center' | 'right';
 }
 
-const Card: React.FC<CardProps> = ({
+export const Card: React.FC<CardProps> = ({
   children,
   className = '',
   hoverable = false,
   padding = 'md',
   shadow = 'soft',
   border = true,
+  onClick,
 }) => {
   const paddingClasses = {
     none: '',
@@ -64,13 +66,15 @@ const Card: React.FC<CardProps> = ({
         ${hoverClass}
         ${className}
       `}
+      onClick={onClick}
+      style={onClick ? { cursor: 'pointer' } : undefined}
     >
       {children}
     </div>
   );
 };
 
-const CardHeader: React.FC<CardHeaderProps> = ({
+export const CardHeader: React.FC<CardHeaderProps> = ({
   children,
   className = '',
   icon: Icon,
@@ -102,7 +106,7 @@ const CardHeader: React.FC<CardHeaderProps> = ({
   );
 };
 
-const CardContent: React.FC<CardContentProps> = ({ children, className = '' }) => {
+export const CardContent: React.FC<CardContentProps> = ({ children, className = '' }) => {
   return (
     <div className={`${className}`}>
       {children}
@@ -110,7 +114,7 @@ const CardContent: React.FC<CardContentProps> = ({ children, className = '' }) =
   );
 };
 
-const CardFooter: React.FC<CardFooterProps> = ({
+export const CardFooter: React.FC<CardFooterProps> = ({
   children,
   className = '',
   align = 'left',
@@ -127,5 +131,3 @@ const CardFooter: React.FC<CardFooterProps> = ({
     </div>
   );
 };
-
-export { Card, CardHeader, CardContent, CardFooter };
