@@ -4,7 +4,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,  // 重要：關閉嚴格模式
+    "strict": true,  // 重要：啟用嚴格模式，確保最高品質
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
