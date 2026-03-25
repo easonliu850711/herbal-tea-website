@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // 重要：輸出靜態檔案
+  output: 'export',
   images: {
-    unoptimized: true, // 重要：關閉圖片優化，避免問題
+    unoptimized: true, // 關閉圖片優化，使用簡單img標籤
   },
   trailingSlash: true,
 }

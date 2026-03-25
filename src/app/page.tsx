@@ -165,33 +165,22 @@ export default function Home() {
         .hero-overlay {
           position: absolute;
           inset: 0;
-          opacity: 0.2;
+          background-image: url('/images/booth/booth-20260323_234211-000.jpg');
+          background-size: cover;
+          background-position: center;
+          opacity: 0.3;
+          filter: blur(2px);
         }
         
         .hero-overlay::before {
           content: '';
           position: absolute;
-          top: 10%;
-          left: 10%;
-          width: 16rem;
-          height: 16rem;
-          background: var(--green-500);
-          border-radius: 50%;
-          mix-blend-mode: multiply;
-          filter: blur(4rem);
-        }
-        
-        .hero-overlay::after {
-          content: '';
-          position: absolute;
-          top: 40%;
-          right: 10%;
-          width: 12rem;
-          height: 12rem;
-          background: var(--emerald-500);
-          border-radius: 50%;
-          mix-blend-mode: multiply;
-          filter: blur(4rem);
+          inset: 0;
+          background: linear-gradient(to bottom right, 
+            rgba(20, 83, 45, 0.7), 
+            rgba(15, 118, 110, 0.6), 
+            rgba(30, 41, 59, 0.7)
+          );
         }
         
         .hero-logo {
