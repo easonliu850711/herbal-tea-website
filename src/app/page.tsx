@@ -1,1092 +1,454 @@
-'use client'
-
-import React from 'react';
-import { Leaf, BookOpen, Package, Lightbulb, Phone, Star, Users, Award, Clock, Heart, ChevronRight } from 'lucide-react';
+import { Navbar, Hero, Section, SectionHeader, SectionContent, Card, CardHeader, CardContent, CardFooter, Button, ImageGallery, ProductGallery, Heading, Text } from '@/components/ui';
+import { Leaf, Heart, Users, Award, Clock, Package, Star, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+import { brandingImages, stallImages, interactionImages, productCloseupImages, getRandomStallImage } from '@/lib/images';
 
-export default function Home() {
-  const features = [
-    {
-      title: "產品故事",
-      description: "三十年傳統市場經驗，從一杯決明子茶開始的溫暖傳承",
-      icon: <BookOpen className="icon-large" />,
-      link: "/story",
-      color: "green",
-      stats: "30年經驗"
-    },
-    {
-      title: "主要產品",
-      description: "十款精選草本茶，每款都是市場經驗的智慧結晶",
-      icon: <Package className="icon-large" />,
-      link: "/products",
-      color: "orange",
-      stats: "10款茶品"
-    },
-    {
-      title: "草本小撇步",
-      description: "養生知識、茶飲搭配、季節養生提醒",
-      icon: <Lightbulb className="icon-large" />,
-      link: "/tips",
-      color: "blue",
-      stats: "每日更新"
-    },
-    {
-      title: "聯絡我們",
-      description: "LINE官方帳號、服務專線、實體攤位資訊",
-      icon: <Phone className="icon-large" />,
-      link: "/contact",
-      color: "purple",
-      stats: "即時回覆"
-    }
-  ];
-
+export default function HomePage() {
+  // 精選產品
   const featuredProducts = [
     {
-      name: "七葉膽茶",
-      subtitle: "強身茶",
-      description: "精選七葉膽，溫和滋補，市場最受歡迎",
-      image: "/images/product-closeup/產品照-001.png",
+      name: '七葉膽茶',
+      subtitle: '強身茶',
+      description: '精選七葉膽，溫和滋補，適合日常保健',
+      image: productCloseupImages['七葉膽茶'],
+      benefits: ['增強體力', '促進代謝', '溫和滋補'],
       rating: 4.8,
-      tag: "熱銷冠軍"
+      tag: '熱銷冠軍',
     },
     {
-      name: "洛神花茶",
-      subtitle: "纖體美顏茶",
-      description: "新鮮洛神花，酸甜可口，女性最愛",
-      image: "/images/product-closeup/產品照-002.png",
+      name: '洛神花茶',
+      subtitle: '纖體美顏茶',
+      description: '新鮮洛神花，酸甜可口，養顏美容',
+      image: productCloseupImages['洛神花茶'],
+      benefits: ['美容養顏', '幫助消化', '豐富維生素'],
       rating: 4.7,
-      tag: "美容首選"
+      tag: '女性最愛',
     },
     {
-      name: "枸杞菊花茶",
-      subtitle: "清熱明目茶",
-      description: "枸杞搭配菊花，清熱明目，辦公室必備",
-      image: "/images/product-closeup/產品照-007.png",
+      name: '枸杞菊花茶',
+      subtitle: '清熱明目茶',
+      description: '枸杞搭配菊花，清熱明目，辦公室必備',
+      image: productCloseupImages['枸杞菊花茶'],
+      benefits: ['清熱明目', '晶亮舒適', '經典配方'],
       rating: 4.6,
-      tag: "經典配方"
-    }
+      tag: '經典配方',
+    },
   ];
 
+  // 品牌價值
+  const brandValues = [
+    {
+      title: '三十年堅持',
+      description: '從屏東到台北，一盞茶養大一對姊弟',
+      icon: <Clock className="w-8 h-8" />,
+      color: 'brand',
+    },
+    {
+      title: '家庭傳承',
+      description: '不只是一杯茶，同時也承載一個家庭的故事',
+      icon: <Heart className="w-8 h-8" />,
+      color: 'pink',
+    },
+    {
+      title: '品質保證',
+      description: '純天然無添加，每一口都是自然的味道',
+      icon: <Award className="w-8 h-8" />,
+      color: 'amber',
+    },
+    {
+      title: '溫暖服務',
+      description: '像朋友一樣的關心，三十年不變的溫暖',
+      icon: <Users className="w-8 h-8" />,
+      color: 'emerald',
+    },
+  ];
+
+  // 顧客評價
   const testimonials = [
     {
-      name: "張小姐",
-      role: "上班族，喝了3年",
-      content: "每天上班泡一杯七葉膽茶，精神好很多。劉媽媽的茶真的不一樣，喝得出來是用心挑選的原料。",
-      rating: 5
+      name: '張小姐',
+      role: '上班族，喝了3年',
+      content: '每天上班泡一杯七葉膽茶，精神好很多。劉媽媽的茶真的不一樣，喝得出來是用心挑選的原料。',
+      rating: 5,
     },
     {
-      name: "陳先生",
-      role: "工程師，喝了2年",
-      content: "枸杞菊花茶拯救了我的眼睛！每天看電腦超過10小時，現在眼睛不會那麼乾澀了。",
-      rating: 5
+      name: '陳先生',
+      role: '工程師，喝了2年',
+      content: '枸杞菊花茶拯救了我的眼睛！每天看電腦超過10小時，現在眼睛不會那麼乾澀了。',
+      rating: 5,
     },
     {
-      name: "林媽媽",
-      role: "家庭主婦，喝了5年",
-      content: "從傳統市場買到現在，品質一直沒變。劉媽媽就像朋友一樣，會根據你的狀況推薦適合的茶。",
-      rating: 5
-    }
-  ];
-
-  const stats = [
-    { value: "30", label: "年市場經驗", icon: <Clock className="icon-medium" /> },
-    { value: "10", label: "款精選茶品", icon: <Package className="icon-medium" /> },
-    { value: "5000+", label: "位滿意顧客", icon: <Users className="icon-medium" /> },
-    { value: "99%", label: "顧客回購率", icon: <Heart className="icon-medium" /> }
+      name: '林媽媽',
+      role: '家庭主婦，喝了5年',
+      content: '從傳統市場買到現在，品質一直沒變。劉媽媽就像朋友一樣，會根據你的狀況推薦適合的茶。',
+      rating: 5,
+    },
   ];
 
   return (
-    <div className="page-container">
-      {/* Hero Section */}
-      <section className="hero-section">
-        <div className="hero-overlay"></div>
-        <div className="container text-center relative z-10">
-          <div className="hero-logo float">
-            <Leaf className="icon-xlarge" />
-          </div>
-          
-          <h1 className="hero-title">
-            劉媽媽の草本茶
-          </h1>
-          <p className="hero-subtitle">
-            「以前我媽只賣這個決明子茶，就是靠這個把我們養大的。」
-          </p>
-          <p className="hero-tagline">
-            三十年傳統市場經驗 · 溫暖傳承
-          </p>
-          
-          <div className="hero-cta">
-            <Link href="/products" className="btn btn-primary">
-              探索產品 <ChevronRight className="icon-small ml-2" />
-            </Link>
-            <Link href="/story" className="btn btn-outline">
-              品牌故事
-            </Link>
-          </div>
-        </div>
-      </section>
+    <>
+      {/* 導航列 */}
+      <Navbar />
 
-      {/* Stats Section */}
-      <section className="stats-section">
-        <div className="container">
-          <div className="stats-grid">
-            {stats.map((stat, index) => (
-              <div key={index} className="stat-card">
-                <div className="stat-icon">
-                  {stat.icon}
-                </div>
-                <div className="stat-content">
-                  <div className="stat-value">{stat.value}</div>
-                  <div className="stat-label">{stat.label}</div>
+      {/* Hero 主視覺 */}
+      <Hero
+        title="從屏東到台北，一盞茶養大一對姊弟"
+        subtitle="不只是一杯茶，同時也承載一個家庭的故事"
+        description="三十年傳統市場經驗 · 溫暖傳承"
+        backgroundImage={getRandomStallImage()}
+        backgroundType="slideshow"
+        ctaPrimary={{
+          text: '探索產品',
+          href: '/products',
+          icon: <Leaf className="w-4 h-4" />,
+        }}
+        ctaSecondary={{
+          text: '品牌故事',
+          href: '/story',
+          icon: <Heart className="w-4 h-4" />,
+        }}
+        height="large"
+        align="center"
+      />
+
+      {/* 品牌價值 */}
+      <Section background="gray" padding="lg">
+        <SectionHeader
+          title="我們的承諾"
+          subtitle="一杯茶，一份愛，劉媽媽的諾貝爾級奉獻"
+          align="center"
+        />
+        
+        <SectionContent columns={4} gap="md">
+          {brandValues.map((value, index) => (
+            <Card key={index} hoverable padding="lg" className="text-center">
+              <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6 ${
+                value.color === 'brand' ? 'bg-gradient-brand' :
+                value.color === 'pink' ? 'bg-gradient-to-br from-pink-500 to-rose-500' :
+                value.color === 'amber' ? 'bg-gradient-to-br from-amber-500 to-orange-500' :
+                'bg-gradient-to-br from-emerald-500 to-teal-500'
+              }`}>
+                {value.icon}
+              </div>
+              
+              <Heading level={4} className="mb-3">
+                {value.title}
+              </Heading>
+              
+              <Text variant="body" color="muted">
+                {value.description}
+              </Text>
+            </Card>
+          ))}
+        </SectionContent>
+      </Section>
+
+      {/* 精選產品 */}
+      <Section padding="lg">
+        <SectionHeader
+          title="精選熱銷產品"
+          subtitle="茶葉養大的孩子，回饋母親的初心"
+          align="center"
+        />
+        
+        <SectionContent columns={3} gap="lg">
+          {featuredProducts.map((product, index) => (
+            <Card key={index} hoverable padding="none" className="overflow-hidden">
+              {/* 產品圖片 */}
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+                <div className="absolute top-4 right-4 px-3 py-1 bg-brand-emerald text-white text-sm font-semibold rounded-full">
+                  {product.tag}
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Features Grid */}
-      <section className="section-padding">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="section-title">
-              探索劉媽媽的草本世界
-            </h2>
-            <p className="section-description">
-              從產品故事到養生知識，完整了解三十年市場經驗的智慧結晶
-            </p>
-          </div>
-
-          <div className="grid grid-4">
-            {features.map((feature, index) => (
-              <Link 
-                key={index}
-                href={feature.link}
-                className="feature-card"
-              >
-                <div className={`feature-icon ${feature.color}`}>
-                  {feature.icon}
+              
+              <CardContent className="p-6">
+                <div className="mb-4">
+                  <Heading level={4} className="mb-1">
+                    {product.name}
+                  </Heading>
+                  <Text variant="body" color="brand" weight="semibold">
+                    {product.subtitle}
+                  </Text>
                 </div>
                 
-                <div className="feature-badge">{feature.stats}</div>
+                <Text variant="body" color="muted" className="mb-4">
+                  {product.description}
+                </Text>
                 
-                <h3 className="feature-title">
-                  {feature.title}
-                </h3>
-                <p className="feature-description">
-                  {feature.description}
-                </p>
-                
-                <div className="feature-link">
-                  <span>探索更多</span>
-                  <span className="arrow">→</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Products */}
-      <section className="products-section">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="section-title">
-              精選熱銷產品
-            </h2>
-            <p className="section-description">
-              三十年市場驗證，顧客最愛的三款草本茶
-            </p>
-          </div>
-
-          <div className="products-grid">
-            {featuredProducts.map((product, index) => (
-              <div key={index} className="product-card">
-                <div className="product-image img-container">
-                  {/* @ts-ignore */}
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="product-img"
-                  />
-                  <div className="product-tag">{product.tag}</div>
-                </div>
-                
-                <div className="product-content">
-                  <div className="product-header">
-                    <h3 className="product-name">{product.name}</h3>
-                    <p className="product-subtitle">{product.subtitle}</p>
-                  </div>
-                  
-                  <p className="product-description">{product.description}</p>
-                  
-                  <div className="product-rating">
-                    {[...Array(5)].map((_, i) => (
-                      <Star 
-                        key={i} 
-                        className={`star ${i < Math.floor(product.rating) ? 'filled' : ''}`}
-                      />
-                    ))}
-                    <span className="rating-value">{product.rating}</span>
-                  </div>
-                  
-                  <Link href="/products" className="btn btn-secondary">
-                    查看詳情
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <div className="text-center mt-12">
-            <Link href="/products" className="btn btn-primary">
-              查看全部產品 <ChevronRight className="icon-small ml-2" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="testimonials-section">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="section-title">
-              顧客真實評價
-            </h2>
-            <p className="section-description">
-              聽聽喝了多年的顧客怎麼說
-            </p>
-          </div>
-
-          <div className="testimonials-grid">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className testimonial-card">
-                <div className="testimonial-rating">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="star filled" />
+                {/* 功效標籤 */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {product.benefits.map((benefit, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 bg-brand-light/20 text-brand-deep text-sm rounded-full"
+                    >
+                      {benefit}
+                    </span>
                   ))}
                 </div>
                 
-                <p className="testimonial-content">"{testimonial.content}"</p>
-                
-                <div className="testimonial-author">
-                  <div>
-                    <div className="author-name">{testimonial.name}</div>
-                    <div className="author-role">{testimonial.role}</div>
+                {/* 評分 */}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`w-4 h-4 ${
+                          i < Math.floor(product.rating)
+                            ? 'text-amber-500 fill-amber-500'
+                            : 'text-gray-300'
+                        }`}
+                      />
+                    ))}
+                    <span className="ml-2 text-sm text-gray-600">
+                      {product.rating}
+                    </span>
                   </div>
-                  <Award className="icon-small text-green-600" />
+                  
+                  <Button variant="outline" size="sm">
+                    了解更多
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </SectionContent>
+        
+        <div className="text-center mt-8">
+          <Link href="/products">
+            <Button variant="primary" size="lg" icon={<ChevronRight className="w-4 h-4" />}>
+              查看全部產品
+            </Button>
+          </Link>
+        </div>
+      </Section>
+
+      {/* 攤位環境展示 */}
+      <Section background="gray" padding="lg">
+        <SectionHeader
+          title="傳統市場的溫暖記憶"
+          subtitle="三十年如一日，在屏東高雄各地的市場裡，劉媽媽與客人建立了深厚的感情"
+          align="center"
+        />
+        
+        <ImageGallery
+          images={stallImages.slice(0, 6)}
+          title="我們的攤位"
+          description="從清晨到日落，見證了無數溫暖的故事"
+          columns={3}
+          category="攤位環境"
+          showControls={false}
+        />
+      </Section>
+
+      {/* 顧客評價 */}
+      <Section padding="lg">
+        <SectionHeader
+          title="顧客真實評價"
+          subtitle="聽聽喝了多年的顧客怎麼說"
+          align="center"
+        />
+        
+        <SectionContent columns={3} gap="md">
+          {testimonials.map((testimonial, index) => (
+            <Card key={index} hoverable padding="lg">
+              <div className="flex items-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className="w-4 h-4 text-amber-500 fill-amber-500"
+                  />
+                ))}
+              </div>
+              
+              <Text variant="body" className="mb-6 italic text-gray-700">
+                "{testimonial.content}"
+              </Text>
+              
+              <div className="flex items-center justify-between">
+                <div>
+                  <Text weight="semibold" className="text-gray-900">
+                    {testimonial.name}
+                  </Text>
+                  <Text variant="small" color="muted">
+                    {testimonial.role}
+                  </Text>
+                </div>
+                <Award className="w-5 h-5 text-brand-emerald" />
+              </div>
+            </Card>
+          ))}
+        </SectionContent>
+      </Section>
+
+      {/* 互動場景 */}
+      <Section background="brand" padding="lg" className="text-white">
+        <SectionHeader
+          title="不只是賣茶，更是交朋友"
+          subtitle="在市場裡，劉媽媽與客人像家人一樣聊天，分享健康知識，關心彼此生活"
+          align="center"
+          className="text-white"
+        />
+        
+        <ImageGallery
+          images={interactionImages.slice(0, 4)}
+          columns={2}
+          category="溫暖互動"
+          interactive={false}
+          className="opacity-90 hover:opacity-100 transition-opacity"
+        />
+        
+        <div className="text-center mt-8">
+          <Text variant="lead" className="text-white/90 mb-4">
+            一杯茶，一份愛，劉媽媽的諾貝爾級奉獻
+          </Text>
+          <Link href="/story">
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-white text-white hover:bg-white/10"
+            >
+              閱讀完整故事
+            </Button>
+          </Link>
+        </div>
+      </Section>
+
+      {/* 聯絡區 */}
+      <Section padding="lg">
+        <SectionHeader
+          title="開始您的草本之旅"
+          subtitle="掃描 QR Code 加入官方 LINE，獲取三十年市場經驗的健康建議"
+          align="center"
+        />
+        
+        <div className="max-w-4xl mx-auto">
+          <Card padding="lg" className="text-center">
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              {/* QR Code */}
+              <div className="flex-shrink-0">
+                <div className="w-48 h-48 bg-gradient-to-br from-brand-light to-emerald-100 rounded-xl flex items-center justify-center p-4">
+                  <img
+                    src="/images/ＱＲcode.jpg"
+                    alt="LINE官方帳號 QR Code"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <Text variant="small" weight="semibold" className="mt-3 text-brand-deep">
+                  官方 LINE 掃描區
+                </Text>
+              </div>
+              
+              {/* 聯絡資訊 */}
+              <div className="flex-1 text-left">
+                <Heading level={3} className="mb-2">
+                  LINE 官方帳號
+                </Heading>
+                <Text variant="lead" weight="bold" className="text-brand-emerald mb-2">
+                  @910jrwoy
+                </Text>
+                <Text variant="body" color="muted" className="mb-6">
+                  獲取專屬優惠與養生知識
+                </Text>
+                
+                <div className="space-y-3">
+                  <div className="flex items-center text-gray-700">
+                    <Package className="w-5 h-5 text-brand-emerald mr-3" />
+                    <span>十款精選草本茶，三十年市場驗證</span>
+                  </div>
+                  <div className="flex items-center text-gray-700">
+                    <Users className="w-5 h-5 text-brand-emerald mr-3" />
+                    <span>一對一健康諮詢，像朋友一樣關心</span>
+                  </div>
+                  <div className="flex items-center text-gray-700">
+                    <Award className="w-5 h-5 text-brand-emerald mr-3" />
+                    <span>純天然無添加，品質保證</span>
+                  </div>
+                </div>
+                
+                <div className="mt-8 flex flex-wrap gap-4">
+                  <Link href="/contact">
+                    <Button variant="primary" size="lg">
+                      立即聯絡
+                    </Button>
+                  </Link>
+                  <Link href="/products">
+                    <Button variant="outline" size="lg">
+                      瀏覽產品
+                    </Button>
+                  </Link>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          </Card>
         </div>
-      </section>
+      </Section>
 
-      {/* Quick Contact */}
-      <section className="contact-section">
-        <div className="container text-center">
-          <h2 className="section-title">
-            立即開始您的草本之旅
-          </h2>
-          <p className="section-description">
-            掃描 QR Code 加入官方 LINE，獲取三十年市場經驗的健康建議與專屬優惠
-          </p>
-          
-          <div className="contact-card">
-            <div className="qr-placeholder">
-              <div className="qr-icon">📱</div>
-              <div className="qr-text">掃描加入</div>
+      {/* 頁尾 */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            {/* 品牌資訊 */}
+            <div>
+              <div className="flex items-center space-x-2 mb-4">
+                <Leaf className="w-6 h-6 text-emerald-400" />
+                <span className="text-xl font-bold">劉媽媽の草本茶</span>
+              </div>
+              <Text variant="body" color="muted" className="text-gray-400">
+                從屏東到台北，一盞茶養大一對姊弟
+              </Text>
             </div>
             
-            <div className="contact-info">
-              <h3>LINE 官方帳號</h3>
-              <p className="line-id">@910jrwoy</p>
-              <p className="contact-note">獲取專屬優惠與養生知識</p>
-              
-              <div className="contact-details">
-                <div className="contact-item">
-                  <Phone className="icon-small" />
-                  <span>服務專線：0956-111-636</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-content">
-            <div className="footer-brand">
-              <div className="footer-logo">劉媽媽の草本茶</div>
-              <p className="footer-tagline">三十年市場經驗的溫暖傳承</p>
+            {/* 快速連結 */}
+            <div>
+              <Heading level={6} className="mb-4 text-white">
+                探索
+              </Heading>
+              <ul className="space-y-2">
+                <li><Link href="/" className="text-gray-400 hover:text-white transition-colors">首頁</Link></li>
+                <li><Link href="/story" className="text-gray-400 hover:text-white transition-colors">品牌故事</Link></li>
+                <li><Link href="/products" className="text-gray-400 hover:text-white transition-colors">主要產品</Link></li>
+              </ul>
             </div>
             
-            <div className="footer-links">
-              <div className="footer-column">
-                <h4>探索</h4>
-                <Link href="/">首頁</Link>
-                <Link href="/story">產品故事</Link>
-                <Link href="/products">主要產品</Link>
-              </div>
-              
-              <div className="footer-column">
-                <h4>資源</h4>
-                <Link href="/tips">草本小撇步</Link>
-                <Link href="/contact">聯絡我們</Link>
-              </div>
-              
-              <div className="footer-column">
-                <h4>聯絡</h4>
-                <span>LINE: @910jrwoy</span>
-                <span>電話: 0956-111-636</span>
-              </div>
+            {/* 資源 */}
+            <div>
+              <Heading level={6} className="mb-4 text-white">
+                資源
+              </Heading>
+              <ul className="space-y-2">
+                <li><Link href="/tips" className="text-gray-400 hover:text-white transition-colors">草本小撇步</Link></li>
+                <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors">聯絡我們</Link></li>
+              </ul>
+            </div>
+            
+            {/* 聯絡 */}
+            <div>
+              <Heading level={6} className="mb-4 text-white">
+                聯絡
+              </Heading>
+              <ul className="space-y-2 text-gray-400">
+                <li>LINE: @910jrwoy</li>
+                <li>電話: 0956-111-636</li>
+                <li>三十年市場經驗</li>
+              </ul>
             </div>
           </div>
           
-          <div className="footer-bottom">
-            <p>
-              © 2026 劉媽媽の草本茶 · 從決明子到草本茶，用茶養大兩個小孩的媽媽
-            </p>
-            <p>
-              三十年市場經驗的溫暖傳承 · 每一杯茶都是對媽媽養育之恩的回報
-            </p>
+          <div className="border-t border-gray-800 pt-8 text-center">
+            <Text variant="small" color="muted" className="text-gray-500">
+              © 2026 劉媽媽の草本茶 · 茶葉養大的孩子，回饋母親的初心
+            </Text>
+            <Text variant="small" color="muted" className="text-gray-500 mt-1">
+              一杯茶，一份愛，劉媽媽的諾貝爾級奉獻            </Text>
           </div>
         </div>
       </footer>
-
-      <style jsx>{`
-        /* 頁面容器 */
-        .page-container {
-          min-height: 100vh;
-          padding-top: 5rem;
-        }
-        
-        /* Hero區 */
-        .hero-section {
-          position: relative;
-          background: linear-gradient(to bottom right, 
-            var(--green-900), 
-            var(--emerald-800), 
-            var(--stone-900)
-          );
-          color: white;
-          padding: 8rem 0;
-          overflow: hidden;
-        }
-        
-        .hero-overlay {
-          position: absolute;
-          inset: 0;
-          background-image: url('/images/booth/booth-20260323_234211-000.jpg');
-          background-size: cover;
-          background-position: center;
-          opacity: 0.2;
-          filter: blur(3px);
-        }
-        
-        .hero-overlay::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(to bottom right, 
-            rgba(20, 83, 45, 0.8), 
-            rgba(15, 118, 110, 0.7), 
-            rgba(30, 41, 59, 0.8)
-          );
-        }
-        
-        .hero-logo {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          width: 8rem;
-          height: 8rem;
-          background: linear-gradient(to bottom right, 
-            var(--green-500), 
-            var(--emerald-600)
-          );
-          border-radius: 2rem;
-          margin-bottom: 2rem;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-        
-        .hero-title {
-          font-size: 4rem;
-          font-weight: bold;
-          margin-bottom: 1.5rem;
-          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-        
-        .hero-subtitle {
-          font-size: 2rem;
-          opacity: 0.95;
-          max-width: 48rem;
-          margin: 0 auto 2rem;
-          line-height: 1.4;
-        }
-        
-        .hero-tagline {
-          font-size: 1.5rem;
-          opacity: 0.8;
-          margin-bottom: 3rem;
-        }
-        
-        .hero-cta {
-          display: flex;
-          gap: 1rem;
-          justify-content: center;
-          flex-wrap: wrap;
-        }
-        
-        /* 按鈕 */
-        .btn {
-          display: inline-flex;
-          align-items: center;
-          padding: 1rem 2rem;
-          border-radius: 0.75rem;
-          font-weight: 600;
-          text-decoration: none;
-          transition: all 0.3s;
-          border: 2px solid transparent;
-        }
-        
-        .btn-primary {
-          background: var(--green-600);
-          color: white;
-        }
-        
-        .btn-primary:hover {
-          background: var(--green-700);
-          transform: translateY(-2px);
-          box-shadow: 0 10px 25px rgba(22, 163, 74, 0.4);
-        }
-        
-        .btn-outline {
-          background: transparent;
-          color: white;
-          border-color: rgba(255, 255, 255, 0.3);
-        }
-        
-        .btn-outline:hover {
-          background: rgba(255, 255, 255, 0.1);
-          border-color: white;
-        }
-        
-        .btn-secondary {
-          background: white;
-          color: var(--green-700);
-          border: 2px solid var(--green-200);
-          padding: 0.75rem 1.5rem;
-        }
-        
-        .btn-secondary:hover {
-          background: var(--green-50);
-          border-color: var(--green-300);
-        }
-        
-        /* 統計區 */
-        .stats-section {
-          background: white;
-          padding: 4rem 0;
-          margin-top: -2rem;
-          border-radius: 2rem 2rem 0 0;
-          position: relative;
-          z-index: 1;
-          box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.05);
-        }
-        
-        .stats-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-          gap: 2rem;
-          max-width: 64rem;
-          margin: 0 auto;
-        }
-        
-        .stat-card {
-          display: flex;
-          align-items: center;
-          gap: 1.5rem;
-          padding: 1.5rem;
-          background: var(--green-50);
-          border-radius: 1rem;
-        }
-        
-        .stat-icon {
-          flex-shrink: 0;
-          width: 4rem;
-          height: 4rem;
-          background: white;
-          border-radius: 0.75rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .stat-icon :global(svg) {
-          width: 2rem;
-          height: 2rem;
-          color: var(--green-600);
-        }
-        
-        .stat-value {
-          font-size: 2rem;
-          font-weight: bold;
-          color: var(--stone-900);
-          line-height: 1;
-        }
-        
-        .stat-label {
-          color: var(--stone-600);
-          font-size: 0.875rem;
-        }
-        
-        /* 區段通用 */
-        .section-padding {
-          padding:          5rem 0;
-        }
-        
-        .section-title {
-          font-size: 2.5rem;
-          font-weight: bold;
-          color: var(--stone-900);
-          margin-bottom: 1rem;
-        }
-        
-        .section-description {
-          font-size: 1.25rem;
-          color: var(--stone-600);
-          max-width: 48rem;
-          margin: 0 auto 3rem;
-        }
-        
-        /* 功能卡片 */
-        .grid-4 {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 2rem;
-        }
-        
-        .feature-card {
-          background: white;
-          border-radius: 1.5rem;
-          padding: 2rem;
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-          transition: all 0.3s;
-          text-decoration: none;
-          display: block;
-          position: relative;
-          overflow: hidden;
-        }
-        
-        .feature-card:hover {
-          transform: translateY(-0.5rem);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .feature-icon {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          width: 5rem;
-          height: 5rem;
-          border-radius: 1rem;
-          margin-bottom: 1.5rem;
-        }
-        
-        .feature-icon.green {
-          background: linear-gradient(to bottom right, 
-            var(--green-500), 
-            var(--emerald-600)
-          );
-        }
-        
-        .feature-icon.orange {
-          background: linear-gradient(to bottom right, 
-            #f97316, 
-            #ea580c
-          );
-        }
-        
-        .feature-icon.blue {
-          background: linear-gradient(to bottom right, 
-            #3b82f6, 
-            #0ea5e9
-          );
-        }
-        
-        .feature-icon.purple {
-          background: linear-gradient(to bottom right, 
-            #8b5cf6, 
-            #d946ef
-          );
-        }
-        
-        .feature-icon :global(svg) {
-          width: 3rem;
-          height: 3rem;
-          color: white;
-        }
-        
-        .feature-badge {
-          position: absolute;
-          top: 1rem;
-          right: 1rem;
-          background: var(--green-100);
-          color: var(--green-700);
-          padding: 0.25rem 0.75rem;
-          border-radius: 1rem;
-          font-size: 0.875rem;
-          font-weight: 600;
-        }
-        
-        .feature-title {
-          font-size: 1.5rem;
-          font-weight: bold;
-          color: var(--stone-900);
-          margin-bottom: 0.75rem;
-        }
-        
-        .feature-description {
-          color: var(--stone-600);
-          line-height: 1.6;
-          margin-bottom: 1.5rem;
-        }
-        
-        .feature-link {
-          display: flex;
-          align-items: center;
-          color: var(--green-600);
-          font-weight: 600;
-        }
-        
-        .arrow {
-          margin-left: 0.5rem;
-          transition: transform 0.3s;
-        }
-        
-        .feature-card:hover .arrow {
-          transform: translateX(0.5rem);
-        }
-        
-        /* 產品區 */
-        .products-section {
-          background: linear-gradient(to bottom, 
-            var(--stone-50), 
-            white
-          );
-          padding: 5rem 0;
-        }
-        
-        .products-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 2rem;
-          max-width: 64rem;
-          margin: 0 auto;
-        }
-        
-        .product-card {
-          background: white;
-          border-radius: 1.5rem;
-          overflow: hidden;
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-          transition: all 0.3s;
-        }
-        
-        .product-card:hover {
-          transform: translateY(-0.5rem);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .product-image {
-          height: 250px;
-          position: relative;
-        }
-        
-        .product-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        
-        .product-tag {
-          position: absolute;
-          top: 1rem;
-          right: 1rem;
-          background: var(--green-600);
-          color: white;
-          padding: 0.25rem 0.75rem;
-          border-radius: 1rem;
-          font-size: 0.875rem;
-          font-weight: 600;
-        }
-        
-        .product-content {
-          padding: 1.5rem;
-        }
-        
-        .product-header {
-          margin-bottom: 1rem;
-        }
-        
-        .product-name {
-          font-size: 1.5rem;
-          font-weight: bold;
-          color: var(--stone-900);
-          margin-bottom: 0.25rem;
-        }
-        
-        .product-subtitle {
-          color: var(--green-600);
-          font-weight: 600;
-        }
-        
-        .product-description {
-          color: var(--stone-600);
-          line-height: 1.6;
-          margin-bottom: 1.5rem;
-        }
-        
-        .product-rating {
-          display: flex;
-          align-items: center;
-          gap: 0.25rem;
-          margin-bottom: 1.5rem;
-        }
-        
-        .star {
-          width: 1.25rem;
-          height: 1.25rem;
-          color: #d1d5db;
-        }
-        
-        .star.filled {
-          color: #fbbf24;
-        }
-        
-        .rating-value {
-          margin-left: 0.5rem;
-          color: var(--stone-600);
-          font-weight: 600;
-        }
-        
-        /* 評價區 */
-        .testimonials-section {
-          padding: 5rem 0;
-          background: white;
-        }
-        
-        .testimonials-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 2rem;
-          max-width: 64rem;
-          margin: 0 auto;
-        }
-        
-        .testimonial-card {
-          background: var(--green-50);
-          border-radius: 1.5rem;
-          padding: 2rem;
-          border: 1px solid var(--green-100);
-        }
-        
-        .testimonial-rating {
-          display: flex;
-          gap: 0.25rem;
-          margin-bottom: 1.5rem;
-        }
-        
-        .testimonial-content {
-          color: var(--stone-700);
-          line-height: 1.6;
-          font-style: italic;
-          margin-bottom: 1.5rem;
-        }
-        
-        .testimonial-author {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-        
-        .author-name {
-          font-weight: 600;
-          color: var(--stone-900);
-        }
-        
-        .author-role {
-          color: var(--stone-600);
-          font-size: 0.875rem;
-        }
-        
-        /* 聯絡區 */
-        .contact-section {
-          background: linear-gradient(to bottom right, 
-            var(--green-50), 
-            var(--emerald-50)
-          );
-          padding: 5rem 0;
-        }
-        
-        .contact-card {
-          display: inline-flex;
-          flex-direction: column;
-          align-items: center;
-          background: white;
-          padding: 3rem;
-          border-radius: 2rem;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-          max-width: 36rem;
-          margin-top: 2rem;
-        }
-        
-        @media (min-width: 768px) {
-          .contact-card {
-            flex-direction: row;
-            gap: 3rem;
-            max-width: 56rem;
-          }
-        }
-        
-        .qr-placeholder {
-          width: 12rem;
-          height: 12rem;
-          background: linear-gradient(to bottom right, 
-            var(--green-100), 
-            var(--emerald-100)
-          );
-          border-radius: 1rem;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          margin-bottom: 2rem;
-        }
-        
-        @media (min-width: 768px) {
-          .qr-placeholder {
-            margin-bottom: 0;
-          }
-        }
-        
-        .qr-icon {
-          font-size: 3rem;
-          margin-bottom: 0.5rem;
-        }
-        
-        .qr-text {
-          color: var(--green-600);
-          font-weight: bold;
-        }
-        
-        .contact-info {
-          text-align: left;
-        }
-        
-        .contact-info h3 {
-          font-size: 1.75rem;
-          font-weight: bold;
-          color: var(--stone-900);
-          margin-bottom: 0.5rem;
-        }
-        
-        .line-id {
-          font-size: 2rem;
-          font-weight: bold;
-          color: var(--green-700);
-          margin-bottom: 0.5rem;
-        }
-        
-        .contact-note {
-          color: var(--stone-600);
-          margin-bottom: 1.5rem;
-        }
-        
-        .contact-details {
-          display: flex;
-          flex-direction: column;
-          gap: 0.75rem;
-        }
-        
-        .contact-item {
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-          color: var(--stone-700);
-        }
-        
-        .contact-item :global(svg) {
-          width: 1.25rem;
-          height: 1.25rem;
-          color: var(--green-600);
-        }
-        
-        /* 頁尾 */
-        .footer {
-          background: var(--stone-900);
-          color: white;
-          padding: 4rem 0 2rem;
-        }
-        
-        .footer-content {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 3rem;
-          margin-bottom: 3rem;
-        }
-        
-        @media (min-width: 768px) {
-          .footer-content {
-            grid-template-columns: 1fr 2fr;
-          }
-        }
-        
-        .footer-brand {
-          max-width: 300px;
-        }
-        
-        .footer-logo {
-          font-size: 1.5rem;
-          font-weight: bold;
-          color: white;
-          margin-bottom: 0.5rem;
-        }
-        
-        .footer-tagline {
-          color: var(--stone-400);
-        }
-        
-        .footer-links {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-          gap: 2rem;
-        }
-        
-        .footer-column {
-          display: flex;
-          flex-direction: column;
-          gap: 0.75rem;
-        }
-        
-        .footer-column h4 {
-          font-size: 1.125rem;
-          font-weight: 600;
-          margin-bottom: 0.5rem;
-          color: white;
-        }
-        
-        .footer-column a,
-        .footer-column span {
-          color: var(--stone-400);
-          text-decoration: none;
-          transition: color 0.2s;
-        }
-        
-        .footer-column a:hover {
-          color: white;
-        }
-        
-        .footer-bottom {
-          border-top: 1px solid var(--stone-800);
-          padding-top: 2rem;
-          text-align: center;
-        }
-        
-        .footer-bottom p {
-          color: var(--stone-400);
-          margin-bottom: 0.5rem;
-        }
-        
-        /* 圖標大小 */
-        .icon-large {
-          width: 3rem;
-          height: 3rem;
-        }
-        
-        .icon-xlarge {
-          width: 3.5rem;
-          height: 3.5rem;
-          color: white;
-        }
-        
-        .icon-medium {
-          width: 2rem;
-          height: 2rem;
-        }
-        
-        .icon-small {
-          width: 1.25rem;
-          height: 1.25rem;
-        }
-        
-        /* 工具類 */
-        .ml-2 {
-          margin-left: 0.5rem;
-        }
-        
-        .mt-12 {
-          margin-top: 3rem;
-        }
-        
-        .text-center {
-          text-align: center;
-        }
-        
-        .relative {
-          position: relative;
-        }
-        
-        .z-10 {
-          z-index: 10;
-        }
-        
-        /* 響應式設計 */
-        @media (max-width: 768px) {
-          .hero-title {
-            font-size: 2.5rem;
-          }
-          
-          .hero-subtitle {
-            font-size: 1.5rem;
-          }
-          
-          .section-title {
-            font-size: 2rem;
-          }
-          
-          .hero-cta {
-            flex-direction: column;
-            align-items: center;
-          }
-          
-          .btn {
-            width: 100%;
-            max-width: 300px;
-            justify-content: center;
-          }
-          
-          .stats-grid {
-            grid-template-columns: 1fr;
-          }
-          
-          .grid-4 {
-            grid-template-columns: 1fr;
-          }
-          
-          .products-grid {
-            grid-template-columns: 1fr;
-          }
-          
-          .testimonials-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-      `}</style>
-    </div>
+    </>
   );
 }
